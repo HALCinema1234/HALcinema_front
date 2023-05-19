@@ -9,6 +9,7 @@ export const Nko = () => {
         <div>
             Nko
             <p>aaaaaaaaa</p>
+            <p>aaaaaadfghfjjndgdlbjknav</p>
         </div>
     );
 };

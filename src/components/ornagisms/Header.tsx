@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
+type Props = {};
+
 export const Header = () => {
     return <SHeader></SHeader>;
 };

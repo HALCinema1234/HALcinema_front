@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 開発ガイド
 
-## Getting Started
+このファイルは、HALcinema の開発に必要な情報をまとめたドキュメントです。以下は、開発に必要なルールや規則です。
 
-First, run the development server:
+## コミットメッセージのルール
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+コミットメッセージは、以下のルールに従う必要があります。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   1 行目は 180 文字以内に、変更内容を要約する。
+-   2 行目は空行とし、3 行目以降に変更の詳細を記載する。
+-   1 行目は動詞で始め、文末にはピリオドを付けない。
+-   1 行目は命令形で書くことが望ましい（例：Add, Update, Fix など）。
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+| Prefix  | 説明                       |
+| ------- | -------------------------- |
+| NEW     | 新しい機能                 |
+| IMPROVE | 仕様に影響がない変更       |
+| FIX     | バグの修正                 |
+| DOC     | ドキュメントの変更・追加   |
+| RELEASE | 新しいバージョンのリリース |
+| TEST    | テスト                     |
+| BREAK   | 以前以降のバージョンへ戻す |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## ブランチ名の命名規則
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ブランチ名は、以下の命名規則に従う必要があります。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### feature/yourname/#issue
 
-## Learn More
+## コーディングスタイルの規則
 
-To learn more about Next.js, take a look at the following resources:
+React プロジェクトでのコーディングスタイルの規則は以下の通りです。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   JavaScript ファイルの拡張子は`.ts`とする。
+-   インデントはスペース 2 つとする。
+-   変数や関数名はキャメルケースで書くことが望ましい。
+-   クラス名はパスカルケースで書くことが望ましい。
+-   プロパティやメソッドの区切りは 1 つの空行で行うことが望ましい。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## その他の規則
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   ESLint を使用して、コード品質を確認することが望ましい。
+-   一つのコミットには、一つの変更点に対応することが望ましい。
+-   プルリクエストのマージには、コードレビューを行うことが望ましい。

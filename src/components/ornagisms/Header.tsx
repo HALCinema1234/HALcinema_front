@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { HeaderNav } from '../atoms/HeaderNav';
+import { HeaderLogo } from '../atoms/HeaderLogo';
 
 type Props = {};
 
 export const Header = () => {
     return (
         <SHeader>
+            <HeaderLogo />
             <HeaderNav name='1' href='' />
         </SHeader>
     );

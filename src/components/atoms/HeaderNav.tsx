@@ -12,7 +12,7 @@ export const HeaderNav = ({ name, href }: Props) => {
 
 const SNavButton = styled.button`
     display: block;
-    width: 40px;
+    /* width: 40px; */
     height: 40px;
     margin: 0 auto;
 

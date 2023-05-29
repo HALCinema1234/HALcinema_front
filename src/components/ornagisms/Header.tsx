@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { HeaderNav } from '../atoms/HeaderNav';
 import { HeaderLogo } from '../atoms/HeaderLogo';
+import { HeaderUser } from '../molecules/HeaderUser';
 
 type Props = {};
 
@@ -10,6 +11,7 @@ export const Header = () => {
         <SHeader>
             <HeaderLogo />
             <HeaderNav name='1' href='' />
+            <HeaderUser />
         </SHeader>
     );
 };
@@ -24,6 +26,6 @@ const SHeader = styled.header`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 100;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
 `;

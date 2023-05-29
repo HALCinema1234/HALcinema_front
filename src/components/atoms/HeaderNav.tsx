@@ -1,11 +1,16 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-export const HeaderNav = () => {
-    return <SNavButton></SNavButton>;
+type Props = {
+    name: string;
+    href: string;
 };
 
-const SNavButton = styled.a`
+export const HeaderNav = ({ name, href }: Props) => {
+    return <SNavButton>{name}</SNavButton>;
+};
+
+const SNavButton = styled.button`
     display: block;
     width: 40px;
     height: 40px;

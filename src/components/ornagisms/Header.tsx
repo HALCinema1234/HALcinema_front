@@ -1,10 +1,15 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { HeaderNav } from '../atoms/HeaderNav';
 
 type Props = {};
 
 export const Header = () => {
-    return <SHeader></SHeader>;
+    return (
+        <SHeader>
+            <HeaderNav name='1' href='' />
+        </SHeader>
+    );
 };
 
 const SHeader = styled.header`
@@ -16,4 +21,7 @@ const SHeader = styled.header`
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 100;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
 `;

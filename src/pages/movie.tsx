@@ -54,7 +54,13 @@ export default function Movie() {
         },
     ];
 
-    const MoviewCardContainer = () => <div></div>;
+    const MoviewCardContainer = () => (
+        <div>
+            {movies.map((movie) => (
+                <MovieCard />
+            ))}
+        </div>
+    );
 
     return (
         <>

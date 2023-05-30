@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-export const MovieCard = () => {
+type Props = {};
+
+export const MovieCard = ({}: Props) => {
     return <div>MovieCard</div>;
 };
 

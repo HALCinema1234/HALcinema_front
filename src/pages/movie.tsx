@@ -2,11 +2,12 @@ import { Inter } from '@next/font/google';
 import { SHead } from '@/components/ornagisms/SHead';
 import { Header } from '@/components/ornagisms/Header';
 import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
+import { Movie } from '@/types/movie';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Movie() {
-    const movies = [
+    const movies: Movie[] = [
         {
             id: 1,
             title: '映画タイトル',
@@ -57,7 +58,7 @@ export default function Movie() {
     const MoviewCardContainer = () => (
         <div>
             {movies.map((movie) => (
-                <MovieCard />
+                <MovieCard movie={movie} />
             ))}
         </div>
     );

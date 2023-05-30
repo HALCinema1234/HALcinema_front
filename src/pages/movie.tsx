@@ -3,6 +3,7 @@ import { SHead } from '@/components/ornagisms/SHead';
 import { Header } from '@/components/ornagisms/Header';
 import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
 import { Movie } from '@/types/movie';
+import styled from '@emotion/styled';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -56,11 +57,11 @@ export default function Movie() {
     ];
 
     const MoviewCardContainer = () => (
-        <div>
+        <SMovieContainer>
             {movies.map((movie) => (
                 <MovieCard movie={movie} />
             ))}
-        </div>
+        </SMovieContainer>
     );
 
     return (
@@ -73,3 +74,10 @@ export default function Movie() {
         </>
     );
 }
+
+const SMovieContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+`;

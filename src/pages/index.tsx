@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
     return (
         <>
-            <SHead title='HALシネマ' />
+            <SHead title='映画一覧' />
             <Header />
 
             <main></main>

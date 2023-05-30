@@ -4,6 +4,7 @@ import { Header } from '@/components/ornagisms/Header';
 import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
 import { Movie } from '@/types/movie';
 import styled from '@emotion/styled';
+import { MainContainer } from '@/components/atoms/MainContainer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -68,9 +69,9 @@ export default function Movie() {
         <>
             <SHead title='HALシネマ' />
             <Header />
-            <main>
+            <MainContainer>
                 <MoviewCardContainer />
-            </main>
+            </MainContainer>
         </>
     );
 }

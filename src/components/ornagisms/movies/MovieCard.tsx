@@ -1,5 +1,6 @@
 import { Movie } from '@/types/movie';
 import styled from '@emotion/styled';
+import Image from 'next/image';
 import React from 'react';
 
 type Props = {
@@ -7,11 +8,16 @@ type Props = {
 };
 
 export const MovieCard = ({ movie }: Props) => {
-    return <div>MovieCard</div>;
+    return (
+        <SMovieCard>
+            <Image src={movie.image} alt='' width={100} height={100} />
+        </SMovieCard>
+    );
 };
 
 const SMovieCard = styled.div`
     width: 100;
     height: 100;
-    border: 1px solid #000;
+    border: 1px solid #333;
+    border-radius: 10px;
 `;

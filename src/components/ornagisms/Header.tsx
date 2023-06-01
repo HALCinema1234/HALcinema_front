@@ -13,7 +13,7 @@ export const Header = () => {
             <HeaderNav name='ホーム' href='/' />
             <HeaderNav name='映画一覧' href='/movie' />
             <HeaderNav name='料金一覧' href='/payment' />
-            <HeaderNav name='施設情報' href='' />
+            <HeaderNav name='施設情報' href='/theaterinf' />
             <HeaderUser />
         </SHeader>
     );

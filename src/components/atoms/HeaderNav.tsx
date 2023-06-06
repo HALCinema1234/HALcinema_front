@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Link from 'next/link';
 import React from 'react';
 
 type Props = {
@@ -7,7 +8,11 @@ type Props = {
 };
 
 export const HeaderNav = ({ name, href }: Props) => {
-    return <SNavButton>{name}</SNavButton>;
+    return (
+        <Link href={href}>
+            <SNavButton>{name}</SNavButton>
+        </Link>
+    );
 };
 
 const SNavButton = styled.button`

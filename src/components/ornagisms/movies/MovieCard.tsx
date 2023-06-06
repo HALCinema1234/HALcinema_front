@@ -28,7 +28,7 @@ export const MovieCard = ({ movie }: Props) => {
 const SMovieCard = styled.div`
     width: 500;
     height: 300;
-    border: 1px solid #999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: center;
 `;

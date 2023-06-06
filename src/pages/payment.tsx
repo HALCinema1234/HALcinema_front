@@ -22,7 +22,7 @@ export default function Payment() {
                 <dl>
                     <dt
                         style={{
-                            marginTop: 50,
+                            marginTop: 100,
                         }}
                     >
                         一般

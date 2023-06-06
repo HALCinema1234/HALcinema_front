@@ -3,6 +3,7 @@ import { SHead } from '@/components/ornagisms/SHead';
 import { Header } from '@/components/ornagisms/Header';
 import { MainContainer } from '@/components/atoms/MainContainer';
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,9 +15,66 @@ export default function Home() {
 
             <MainContainer>
                 <S>
-                    <SCard>aaaaa</SCard>
-                    <SCard>aaaaa</SCard>
-                    <SCard>aaaaa</SCard>
+                    <SCard>
+                        <Image
+                            src='/dummy/Interstellar-HD_1920x1200.jpg'
+                            alt=''
+                            width={500}
+                            height={800}
+                            style={{
+                                borderRadius: '10px 10px 0 0',
+                            }}
+                        />
+                        <p
+                            style={{
+                                fontSize: '30px',
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                            }}
+                        >
+                            映画タイトル
+                        </p>
+                    </SCard>
+                    <SCard>
+                        <Image
+                            src='/dummy/Interstellar-HD_1920x1200.jpg'
+                            alt=''
+                            width={500}
+                            height={800}
+                            style={{
+                                borderRadius: '10px 10px 0 0',
+                            }}
+                        />
+                        <p
+                            style={{
+                                fontSize: '30px',
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                            }}
+                        >
+                            映画タイトル
+                        </p>
+                    </SCard>
+                    <SCard>
+                        <Image
+                            src='/dummy/Interstellar-HD_1920x1200.jpg'
+                            alt=''
+                            width={500}
+                            height={800}
+                            style={{
+                                borderRadius: '10px 10px 0 0',
+                            }}
+                        />
+                        <p
+                            style={{
+                                fontSize: '30px',
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                            }}
+                        >
+                            映画タイトル
+                        </p>
+                    </SCard>
                 </S>
             </MainContainer>
         </>
@@ -24,8 +82,10 @@ export default function Home() {
 }
 
 const S = styled.div`
-    display: 'grid';
-    grid-template-columns: '1fr 1fr 1fr';
+    display: grid;
+    margin-top: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 `;
 
 const SCard = styled.div`

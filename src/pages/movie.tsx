@@ -5,6 +5,7 @@ import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
 import { Movie } from '@/types/movie';
 import styled from '@emotion/styled';
 import { MainContainer } from '@/components/atoms/MainContainer';
+import { Heading, Select, Tab, TabList, Tabs } from '@chakra-ui/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -124,6 +125,18 @@ export default function Movie() {
             <SHead title='HALシネマ' />
             <Header />
             <MainContainer>
+                <Heading>映画一覧</Heading>
+                <Tabs variant='soft-rounded' colorScheme='green' style={{ marginTop: 20 }}>
+                    <TabList>
+                        <Tab>上映中</Tab>
+                        <Tab>上映予定</Tab>
+                    </TabList>
+                </Tabs>
+                <Select placeholder='区分'>
+                    <option>全て</option>
+                    <option>上映中</option>
+                    <option>上映予定</option>
+                </Select>
                 <MoviewCardContainer />
             </MainContainer>
         </>

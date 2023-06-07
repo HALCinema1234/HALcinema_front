@@ -25,8 +25,8 @@ const SHeader = styled.header`
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: #000000a5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 100;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

@@ -13,4 +13,5 @@ const SMainContainer = styled.main`
     width: 1200px;
     margin: 0 auto;
     margin-top: 60px;
+    padding-top: 50px;
 `;

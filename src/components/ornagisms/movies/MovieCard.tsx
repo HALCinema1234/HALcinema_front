@@ -49,10 +49,10 @@ export const MovieCard = ({ movie }: Props) => {
                     {/* {select && <p>説明文あああああ</p>} */}
                 </SMovieCard>
             </motion.div>
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>{movie.title}</ModalHeader>
+                    <ModalHeader>映画の詳細</ModalHeader>
                     <ModalBody>
                         <Image
                             src={movie.image}
@@ -63,6 +63,7 @@ export const MovieCard = ({ movie }: Props) => {
                                 borderRadius: '10px 10px 0 0',
                             }}
                         />
+                        <Text>{movie.title}</Text>
                         <Text>{movie.description}</Text>
                         <Text>{movie.price}円</Text>
                         <Text>上映時間：{movie.time}</Text>

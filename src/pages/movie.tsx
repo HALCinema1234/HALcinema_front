@@ -55,6 +55,60 @@ export default function Movie() {
             time: 120,
             rating: 4.5,
         },
+        {
+            id: 5,
+            title: '映画タイトル',
+            image: '/dummy/Interstellar-HD_1920x1200.jpg',
+            description: '映画の説明',
+            price: 1800,
+            time: 120,
+            rating: 4.5,
+        },
+        {
+            id: 5,
+            title: '映画タイトル',
+            image: '/dummy/Interstellar-HD_1920x1200.jpg',
+            description: '映画の説明',
+            price: 1800,
+            time: 120,
+            rating: 4.5,
+        },
+        {
+            id: 5,
+            title: '映画タイトル',
+            image: '/dummy/Interstellar-HD_1920x1200.jpg',
+            description: '映画の説明',
+            price: 1800,
+            time: 120,
+            rating: 4.5,
+        },
+        {
+            id: 5,
+            title: '映画タイトル',
+            image: '/dummy/Interstellar-HD_1920x1200.jpg',
+            description: '映画の説明',
+            price: 1800,
+            time: 120,
+            rating: 4.5,
+        },
+        {
+            id: 5,
+            title: '映画タイトル',
+            image: '/dummy/Interstellar-HD_1920x1200.jpg',
+            description: '映画の説明',
+            price: 1800,
+            time: 120,
+            rating: 4.5,
+        },
+        {
+            id: 5,
+            title: '映画タイトル',
+            image: '/dummy/Interstellar-HD_1920x1200.jpg',
+            description: '映画の説明',
+            price: 1800,
+            time: 120,
+            rating: 4.5,
+        },
     ];
 
     const MoviewCardContainer = () => (
@@ -78,7 +132,7 @@ export default function Movie() {
 
 const SMovieContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
     padding: 20px;
 `;

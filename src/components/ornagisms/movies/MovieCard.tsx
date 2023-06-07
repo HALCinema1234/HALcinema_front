@@ -10,17 +10,25 @@ type Props = {
 
 export const MovieCard = ({ movie }: Props) => {
     return (
-        <Card>
-            <CardBody>
-                <Image src={movie.image} alt='' width={100} height={100} />
-            </CardBody>
-        </Card>
+        <SMovieCard>
+            <Image
+                src={movie.image}
+                alt=''
+                width={300}
+                height={100}
+                style={{
+                    borderRadius: '10px 10px 0 0',
+                }}
+            />
+            <p>{movie.title}</p>
+        </SMovieCard>
     );
 };
 
 const SMovieCard = styled.div`
-    width: 100;
-    height: 100;
-    border: 1px solid #999;
+    width: 500;
+    height: 300;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    text-align: center;
 `;

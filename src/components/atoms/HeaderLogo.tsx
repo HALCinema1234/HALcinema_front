@@ -4,7 +4,7 @@ import React from 'react';
 export const HeaderLogo = () => {
     return (
         <div>
-            <Image src='/hclogo.png' width={200} height={50} alt='' />
+            <Image src='/hclogo2.png' width={180} height={20} alt='' />
         </div>
     );
 };

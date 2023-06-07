@@ -65,7 +65,7 @@ export default function signup() {
                                 title: 'アカウントを登録しました',
                                 description: 'ログインしてください',
                                 status: 'success',
-                                duration: 9000,
+                                duration: 5000,
                                 isClosable: true,
                             })
                         }

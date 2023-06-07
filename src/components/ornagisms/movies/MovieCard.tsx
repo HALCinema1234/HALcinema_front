@@ -1,27 +1,86 @@
 import { Movie } from '@/types/movie';
-import { Card, CardBody } from '@chakra-ui/react';
+import {
+    Button,
+    Card,
+    CardBody,
+    Input,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    Text,
+    useDisclosure,
+} from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 type Props = {
     movie: Movie;
 };
 
 export const MovieCard = ({ movie }: Props) => {
+    const [select, setSelect] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
-        <SMovieCard>
-            <Image
-                src={movie.image}
-                alt=''
-                width={300}
-                height={100}
-                style={{
-                    borderRadius: '10px 10px 0 0',
-                }}
-            />
-            <p>{movie.title}</p>
-        </SMovieCard>
+        <>
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onHoverStart={() => setSelect(true)}
+                onHoverEnd={() => setSelect(false)}
+                onTap={() => onOpen()}
+            >
+                <SMovieCard>
+                    <Image
+                        src={movie.image}
+                        alt=''
+                        width={300}
+                        height={100}
+                        style={{
+                            borderRadius: '10px 10px 0 0',
+                        }}
+                    />
+                    <p>{movie.title}</p>
+                    {/* {select && <p>説明文あああああ</p>} */}
+                </SMovieCard>
+            </motion.div>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>{movie.title}</ModalHeader>
+                    <ModalBody>
+                        <Image
+                            src={movie.image}
+                            alt=''
+                            width={300}
+                            height={100}
+                            style={{
+                                borderRadius: '10px 10px 0 0',
+                            }}
+                        />
+                        <Text>{movie.description}</Text>
+                        <Text>{movie.price}円</Text>
+                        <Text>上映時間：{movie.time}</Text>
+                        <Input
+                            placeholder='日時'
+                            type='datetime-local'
+                            style={{
+                                marginBottom: '10px',
+                            }}
+                        />
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button colorScheme='green'>予約する</Button>
+                    </ModalFooter>
+                    <ModalCloseButton />
+                </ModalContent>
+            </Modal>
+        </>
     );
 };
 

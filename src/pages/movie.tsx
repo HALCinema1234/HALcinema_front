@@ -126,17 +126,19 @@ export default function Movie() {
             <Header />
             <MainContainer>
                 <Heading>映画一覧</Heading>
-                <Tabs variant='soft-rounded' colorScheme='green' style={{ marginTop: 20 }}>
+                <Tabs variant='soft-rounded' colorScheme='blue' style={{ marginTop: 20 }}>
                     <TabList>
                         <Tab>上映中</Tab>
                         <Tab>上映予定</Tab>
                     </TabList>
                 </Tabs>
-                <Select placeholder='区分'>
-                    <option>全て</option>
-                    <option>上映中</option>
-                    <option>上映予定</option>
-                </Select>
+                <Tabs variant='soft-rounded' colorScheme='purple' style={{ marginTop: 20 }}>
+                    <TabList>
+                        <Tab>全て</Tab>
+                        <Tab>PG</Tab>
+                        <Tab>R18</Tab>
+                    </TabList>
+                </Tabs>
                 <MoviewCardContainer />
             </MainContainer>
         </>

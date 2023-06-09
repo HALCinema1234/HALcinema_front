@@ -1,9 +1,12 @@
 import {
     Box,
+    Stack,
     Step,
+    StepDescription,
     StepIcon,
     StepIndicator,
     StepNumber,
+    StepSeparator,
     StepStatus,
     StepTitle,
     Stepper,
@@ -20,22 +23,25 @@ const steps = [
 
 export const ReserveStepper = () => {
     const { activeStep } = useSteps({
-        index: 0,
+        index: 3,
         count: steps.length,
     });
 
     return (
-        <Stepper index={activeStep}>
-            {steps.map((step, index) => (
-                <Step key={index}>
-                    <StepIndicator>
-                        <StepStatus complete={<StepIcon />} incomplete={<StepNumber />} active={<StepNumber />} />
-                    </StepIndicator>
-                    <Box>
-                        <StepTitle>{step.title}</StepTitle>
-                    </Box>
-                </Step>
-            ))}
-        </Stepper>
+        <Stack>
+            <Stepper index={activeStep}>
+                {steps.map((step, index) => (
+                    <Step key={index}>
+                        <StepIndicator>
+                            <StepStatus complete={<StepIcon />} incomplete={<StepNumber />} active={<StepNumber />} />
+                        </StepIndicator>
+                        <Box>
+                            <StepTitle>{step.description}</StepTitle>
+                        </Box>
+                        <StepSeparator />
+                    </Step>
+                ))}
+            </Stepper>
+        </Stack>
     );
 };

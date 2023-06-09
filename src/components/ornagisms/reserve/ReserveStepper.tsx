@@ -1,5 +1,6 @@
 import {
     Box,
+    Heading,
     Stack,
     Step,
     StepDescription,
@@ -21,15 +22,18 @@ const steps = [
     { title: 'Third', description: '支払方法選択' },
     { title: 'Fourth', description: '予約確認' },
 ];
+type Props = {
+    index: number;
+};
 
-export const ReserveStepper = () => {
-    const { activeStep } = useSteps({
-        index: 0,
-        count: steps.length,
-    });
+export const ReserveStepper = ({ index }: Props) => {
+    const activeStep = index;
 
     return (
         <Stack>
+            <Heading>
+                Step {activeStep + 1}: <b>{steps[activeStep].description}</b>
+            </Heading>
             <Stepper index={activeStep}>
                 {steps.map((step, index) => (
                     <Step key={index}>
@@ -43,9 +47,6 @@ export const ReserveStepper = () => {
                     </Step>
                 ))}
             </Stepper>
-            <Text>
-                Step {activeStep + 1}: <b>{steps[activeStep].description}</b>
-            </Text>
         </Stack>
     );
 };

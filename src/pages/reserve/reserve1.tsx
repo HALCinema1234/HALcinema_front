@@ -12,7 +12,7 @@ export default function reserve1() {
             <SHead title='映画一覧' />
             <Header />
             <MainContainer>
-                <ReserveStepper index={1} />
+                <ReserveStepper index={0} />
             </MainContainer>
         </>
     );

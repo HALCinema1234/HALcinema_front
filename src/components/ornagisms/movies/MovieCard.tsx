@@ -18,6 +18,7 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 type Props = {
     movie: Movie;
@@ -76,7 +77,9 @@ export const MovieCard = ({ movie }: Props) => {
                         />
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='green'>予約する</Button>
+                        <Link href='/reserve/reserve1'>
+                            <Button colorScheme='green'>予約する</Button>
+                        </Link>
                     </ModalFooter>
                     <ModalCloseButton />
                 </ModalContent>

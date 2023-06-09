@@ -4,7 +4,7 @@ import { SHead } from '@/components/ornagisms/SHead';
 import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
 import React from 'react';
 
-export const reserve1 = () => {
+export default function reserve4() {
     return (
         <>
             <SHead title='映画一覧' />
@@ -24,4 +24,4 @@ export const reserve1 = () => {
             </MainContainer>
         </>
     );
-};
+}

@@ -10,6 +10,7 @@ import {
     StepStatus,
     StepTitle,
     Stepper,
+    Text,
     useSteps,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -23,7 +24,7 @@ const steps = [
 
 export const ReserveStepper = () => {
     const { activeStep } = useSteps({
-        index: 3,
+        index: 0,
         count: steps.length,
     });
 
@@ -42,6 +43,9 @@ export const ReserveStepper = () => {
                     </Step>
                 ))}
             </Stepper>
+            <Text>
+                Step {activeStep + 1}: <b>{steps[activeStep].description}</b>
+            </Text>
         </Stack>
     );
 };

@@ -18,9 +18,9 @@ import React from 'react';
 
 const steps = [
     { title: 'First', description: '座席予約' },
-    { title: 'Second', description: '券種選択' },
     { title: 'Third', description: '支払方法選択' },
     { title: 'Fourth', description: '予約確認' },
+    { title: 'Second', description: '予約完了' },
 ];
 type Props = {
     index: number;

@@ -13,6 +13,7 @@ export default function reserve1() {
             <Header />
             <MainContainer>
                 <ReserveStepper index={0} />
+                
             </MainContainer>
         </>
     );

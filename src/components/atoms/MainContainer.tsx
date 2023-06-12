@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { Container } from '@chakra-ui/react';
 import React from 'react';
 
 type Props = {
@@ -6,12 +6,9 @@ type Props = {
 };
 
 export const MainContainer = ({ children }: Props) => {
-    return <SMainContainer>{children}</SMainContainer>;
+    return (
+        <Container maxW='container.xl' paddingTop={110}>
+            {children}
+        </Container>
+    );
 };
-
-const SMainContainer = styled.main`
-    width: 1200px;
-    margin: 0 auto;
-    margin-top: 60px;
-    padding-top: 50px;
-`;

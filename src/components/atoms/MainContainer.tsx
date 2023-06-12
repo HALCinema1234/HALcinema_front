@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react';
+import { Container, Stack } from '@chakra-ui/react';
 import React from 'react';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 export const MainContainer = ({ children }: Props) => {
     return (
         <Container maxW='container.xl' paddingTop={110}>
-            {children}
+            <Stack spacing={8}>{children}</Stack>
         </Container>
     );
 };

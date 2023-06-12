@@ -33,7 +33,7 @@ export const ReserveStepper = ({ index }: Props) => {
 
     return (
         <Stack spacing={8}>
-            <Heading>
+            <Heading fontSize='3xl'>
                 Step {activeStep + 1}: <b>{steps[activeStep].title}</b>
             </Heading>
             <Stepper index={activeStep}>

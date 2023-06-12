@@ -13,7 +13,7 @@ export const SeatsContainer = () => {
             }}
         >
             {[...Array(40)].map((_, i) => (
-                <Seat label={`A${i + 1}`} state='selected' />
+                <Seat label={`A${i + 1}`} state='vacant' />
             ))}
         </div>
     );

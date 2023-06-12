@@ -14,7 +14,15 @@ export default function Home() {
             <Header />
 
             <MainContainer>
-                <Image src={'/dummy/Interstellar-HD_1920x1200.jpg'} width={1200} height={600} alt='' />
+                <Image
+                    src={'/dummy/Interstellar-HD_1920x1200.jpg'}
+                    width={1200}
+                    height={600}
+                    alt=''
+                    style={{
+                        width: '100%',
+                    }}
+                />
                 <S>
                     <SCard>
                         <Image

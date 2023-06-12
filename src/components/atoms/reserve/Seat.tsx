@@ -9,7 +9,7 @@ type Props = {
 export const Seat = ({ state, label }: Props) => {
     return (
         <Button
-            colorScheme={state === 'reserved' ? 'red' : state === 'selected' ? 'blue' : 'gray'}
+            colorScheme={state === 'reserved' ? 'blackAlpha' : state === 'selected' ? 'orange' : 'blue'}
             size='sm'
             isDisabled={state === 'reserved' ? true : false}
         >

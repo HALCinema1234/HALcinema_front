@@ -1,4 +1,5 @@
 import {
+    AbsoluteCenter,
     Box,
     Divider,
     Heading,
@@ -48,11 +49,11 @@ export const ReserveStepper = ({ index }: Props) => {
                     </Step>
                 ))}
             </Stepper>
-            <Box>
-                <Text fontSize='3xl' textAlign='center'>
-                    {steps[activeStep].description}
-                </Text>
+            <Box position='relative' padding='10'>
                 <Divider />
+                <AbsoluteCenter bg='white' px='4' fontSize='3xl'>
+                    {steps[activeStep].description}
+                </AbsoluteCenter>
             </Box>
         </Stack>
     );

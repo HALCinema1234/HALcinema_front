@@ -1,4 +1,5 @@
 import { MainContainer } from '@/components/atoms/MainContainer';
+import { DetailCard } from '@/components/atoms/reserve/DetailCard';
 import { Header } from '@/components/ornagisms/Header';
 import { SHead } from '@/components/ornagisms/SHead';
 import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
@@ -14,6 +15,7 @@ export default function reserve1() {
             <Header />
             <MainContainer>
                 <ReserveStepper index={0} />
+                <DetailCard />
                 <SeatsContainer />
             </MainContainer>
         </>

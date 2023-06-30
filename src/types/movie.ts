@@ -1,9 +1,11 @@
 export type Movie = {
     id: number;
-    title: string;
-    image: string;
-    description: string;
-    price: number;
+    name: string;
+    start: string;
+    age_restriction: string;
+    data: number;
+    introduction: string;
     time: number;
-    rating: number;
+    type: string[];
+    images: string[];
 };

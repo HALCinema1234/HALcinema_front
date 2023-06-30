@@ -1,7 +1,10 @@
-import { Box, Card, CardBody, CardHeader, Heading, Stack, StackDivider, Text } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, CardHeader, Heading, Stack, StackDivider, Text } from '@chakra-ui/react';
 import React from 'react';
+type Props = {
+    onClick: () => void;
+};
 
-export const DetailCard = () => {
+export const DetailCard = ({ onClick }: Props) => {
     return (
         <Card>
             <CardHeader>
@@ -41,6 +44,9 @@ export const DetailCard = () => {
                             8月8日(日) 12:00
                         </Text>
                     </Box>
+                    <Button colorScheme='teal' size='lg' onClick={onClick}>
+                        次へ
+                    </Button>
                 </Stack>
             </CardBody>
         </Card>

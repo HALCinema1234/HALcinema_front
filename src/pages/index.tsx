@@ -4,6 +4,7 @@ import { Header } from '@/components/ornagisms/Header';
 import { MainContainer } from '@/components/atoms/MainContainer';
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import { Card } from '@chakra-ui/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +24,27 @@ export default function Home() {
                         width: '100%',
                     }}
                 />
-                <S>
+                <SContainer>
+                    <Card>
+                        <Image
+                            src='/dummy/Interstellar-HD_1920x1200.jpg'
+                            alt=''
+                            width={500}
+                            height={800}
+                            style={{
+                                borderRadius: '10px 10px 0 0',
+                            }}
+                        />
+                        <p
+                            style={{
+                                fontSize: '30px',
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                            }}
+                        >
+                            映画タイトル
+                        </p>
+                    </Card>
                     <SCard>
                         <Image
                             src='/dummy/Interstellar-HD_1920x1200.jpg'
@@ -64,27 +85,7 @@ export default function Home() {
                             映画タイトル
                         </p>
                     </SCard>
-                    <SCard>
-                        <Image
-                            src='/dummy/Interstellar-HD_1920x1200.jpg'
-                            alt=''
-                            width={500}
-                            height={800}
-                            style={{
-                                borderRadius: '10px 10px 0 0',
-                            }}
-                        />
-                        <p
-                            style={{
-                                fontSize: '30px',
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                            }}
-                        >
-                            映画タイトル
-                        </p>
-                    </SCard>
-                </S>
+                </SContainer>
                 <div
                     style={{
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
@@ -233,7 +234,7 @@ export default function Home() {
     );
 }
 
-const S = styled.div`
+const SContainer = styled.div`
     display: grid;
     margin-top: 100px;
     grid-template-columns: repeat(3, 1fr);

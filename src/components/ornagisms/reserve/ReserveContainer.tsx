@@ -11,7 +11,7 @@ export const ReserveContainer = ({ children }: Prosp) => {
     return (
         <SContainer>
             {children}
-            <DetailCard />
+            <DetailCard onClick={() => {}} />
         </SContainer>
     );
 };

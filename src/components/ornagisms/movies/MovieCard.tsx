@@ -36,7 +36,7 @@ export const MovieCard = ({ movie }: Props) => {
                 onHoverEnd={() => setSelect(false)}
                 onTap={() => onOpen()}
             >
-                <SMovieCard>
+                <Card>
                     <Image
                         src={movie.image}
                         alt=''
@@ -48,7 +48,7 @@ export const MovieCard = ({ movie }: Props) => {
                     />
                     <p>{movie.title}</p>
                     {/* {select && <p>説明文あああああ</p>} */}
-                </SMovieCard>
+                </Card>
             </motion.div>
             <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
                 <ModalOverlay />

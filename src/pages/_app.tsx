@@ -7,6 +7,16 @@ const theme = extendTheme({
         heading: 'Inter',
         body: 'Inter',
     },
+    styles: {
+        global: {
+            body: {
+                backgroundColor: '#F7FAFC',
+            },
+            // html: {
+            //     height: '100%',
+            // },
+        },
+    },
 });
 
 export default function App({ Component, pageProps }: AppProps) {

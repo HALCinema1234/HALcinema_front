@@ -19,5 +19,5 @@ export const ReserveContainer = ({ children, onClick }: Props) => {
 
 const SContainer = styled.div`
     display: grid;
-    grid-template-columns: 9fr 3fr;
+    grid-template-columns: 8fr 4fr;
 `;

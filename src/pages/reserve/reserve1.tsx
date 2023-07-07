@@ -6,12 +6,15 @@ import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
 import { ReserveContainer } from '@/components/ornagisms/reserve/ReserveContainer';
 import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
 import { SeatsContainerS } from '@/components/ornagisms/reserve/SeatsContainerS';
+import { TSeat } from '@/types/seat';
 import { Heading, Stack } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 export default function reserve1() {
     const router = useRouter();
+    const [selectedSeat, setSelectedSeat] = React.useState<TSeat[]>([]);
+
     const handleRoute = () => {
         router.push('reserve2');
     };

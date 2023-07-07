@@ -3,15 +3,16 @@ import { Grid } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import React from 'react';
 
-type Prosp = {
+type Props = {
     children?: React.ReactNode;
+    onClick: () => void;
 };
 
-export const ReserveContainer = ({ children }: Prosp) => {
+export const ReserveContainer = ({ children, onClick }: Props) => {
     return (
         <SContainer>
             {children}
-            <DetailCard onClick={() => {}} />
+            <DetailCard onClick={onClick} />
         </SContainer>
     );
 };

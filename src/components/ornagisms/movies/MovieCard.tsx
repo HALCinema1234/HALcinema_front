@@ -44,6 +44,8 @@ export const MovieCard = ({ movie }: Props) => {
                         height={100}
                         style={{
                             borderRadius: '10px 10px 0 0',
+                            objectFit: 'cover',
+                            height: 150,
                         }}
                     />
                     <p>{movie.title}</p>

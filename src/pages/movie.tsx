@@ -2,119 +2,25 @@ import { Inter } from '@next/font/google';
 import { SHead } from '@/components/ornagisms/SHead';
 import { Header } from '@/components/ornagisms/Header';
 import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
-import { Movie } from '@/types/movie';
+import { TMovie } from '@/types/movie';
 import styled from '@emotion/styled';
 import { MainContainer } from '@/components/atoms/MainContainer';
 import { Heading, Select, Tab, TabList, Tabs } from '@chakra-ui/react';
+import useSWR from 'swr';
+import { log } from 'console';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Movie() {
-    const movies: Movie[] = [
-        {
-            id: 1,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 2,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 3,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 4,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-        {
-            id: 5,
-            title: '映画タイトル',
-            image: '/dummy/Interstellar-HD_1920x1200.jpg',
-            description: '映画の説明',
-            price: 1800,
-            time: 120,
-            rating: 4.5,
-        },
-    ];
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
+export default function Movie() {
+    const { data, error } = useSWR<TMovie[]>(process.env.NEXT_PUBLIC_API_BASE_URL + 'movies', fetcher);
+
+    console.log(data);
+    if (!data) return <></>;
     const MoviewCardContainer = () => (
         <SMovieContainer>
-            {movies.map((movie) => (
+            {data.map((movie) => (
                 <MovieCard movie={movie} />
             ))}
         </SMovieContainer>

@@ -13,8 +13,8 @@ export const SeatsContainerS = () => {
             style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(10, 1fr)',
-                gridGap: '10px',
-                width: 500,
+                gridGap: 5,
+                // width: 500,
             }}
         >
             {[...Array(56)].map((_, i) => (

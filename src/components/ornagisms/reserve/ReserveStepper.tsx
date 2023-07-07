@@ -51,7 +51,7 @@ export const ReserveStepper = ({ index }: Props) => {
             </Stepper>
             <Box position='relative' padding='10'>
                 <Divider />
-                <AbsoluteCenter bg='white' px='4' fontSize='3xl'>
+                <AbsoluteCenter px='4' fontSize='2xl'>
                     {steps[activeStep].description}
                 </AbsoluteCenter>
             </Box>

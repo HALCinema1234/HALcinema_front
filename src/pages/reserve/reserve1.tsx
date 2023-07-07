@@ -13,7 +13,7 @@ import React from 'react';
 
 export default function reserve1() {
     const router = useRouter();
-    const [selectedSeat, setSelectedSeat] = React.useState<TSeat[]>([]);
+    const [seats, setSeat] = React.useState<TSeat[]>([]);
 
     const handleRoute = () => {
         router.push('reserve2');

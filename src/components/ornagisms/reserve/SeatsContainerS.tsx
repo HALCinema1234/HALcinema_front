@@ -27,7 +27,7 @@ export const SeatsContainerS = () => {
                     <Seat key={i} label={`A${i + 1}`} state='vacant' />
                     {i % 8 == 7 && (
                         <Text key={alphabets[i / 8]} fontSize={36}>
-                            {alphabets[i / 8 + 0.125 - 1]}
+                            {alphabets[i / 8 - 0.875]}
                         </Text>
                     )}
                 </>

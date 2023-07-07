@@ -18,7 +18,7 @@ export default function Movie() {
 
     console.log(data);
     if (!data) return <></>;
-    const MoviewCardContainer = () => (
+    const MovieCardContainer = () => (
         <SMovieContainer>
             {data.map((movie) => (
                 <MovieCard movie={movie} />
@@ -45,7 +45,7 @@ export default function Movie() {
                         <Tab>R18</Tab>
                     </TabList>
                 </Tabs>
-                <MoviewCardContainer />
+                <MovieCardContainer />
             </MainContainer>
         </>
     );

@@ -1,5 +1,6 @@
 import { TMovie } from '@/types/movie';
 import {
+    Badge,
     Button,
     Card,
     CardBody,
@@ -55,6 +56,7 @@ export const MovieCard = ({ movie }: Props) => {
                             {movie.title.substring(0, 12)}
                             {movie.title.length > 12 && '...'}
                         </Heading>
+                        <Badge>aaaa</Badge>
                     </CardBody>
                     {/* {select && <p>説明文あああああ</p>} */}
                 </Card>

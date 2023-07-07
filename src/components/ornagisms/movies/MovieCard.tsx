@@ -1,4 +1,4 @@
-import { Movie } from '@/types/movie';
+import { TMovie } from '@/types/movie';
 import {
     Button,
     Card,
@@ -21,7 +21,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 type Props = {
-    movie: Movie;
+    movie: TMovie;
 };
 
 export const MovieCard = ({ movie }: Props) => {
@@ -38,7 +38,7 @@ export const MovieCard = ({ movie }: Props) => {
             >
                 <Card>
                     <Image
-                        src={movie.image}
+                        src={''}
                         alt=''
                         width={300}
                         height={100}
@@ -56,7 +56,7 @@ export const MovieCard = ({ movie }: Props) => {
                     <ModalHeader>映画の詳細</ModalHeader>
                     <ModalBody>
                         <Image
-                            src={movie.image}
+                            src={''}
                             alt=''
                             width={300}
                             height={100}

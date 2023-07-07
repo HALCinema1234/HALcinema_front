@@ -2,7 +2,7 @@
 // GET movies/
 // ===============================================================
 // 映画のリストを取得
-export type Movie = {
+export type TMovie = {
     id: number; // 映画ID
     title: string; // 映画タイトル
     thumbnail: string; // 映画サムネイル
@@ -16,7 +16,7 @@ export type Movie = {
 // GET movies/{映画ID}
 // ===============================================================
 // 映画の詳細と一週間分のスケジュールを取得
-export type MovieInfo = {
+export type TMovieInfo = {
     title: string; // 映画タイトル
     start: string; // 公開開始日
     age_restrictions: number; // 年齢制限
@@ -25,11 +25,11 @@ export type MovieInfo = {
     time: number; // 映画の長さ(分)
     images: string[]; // スクリーンショット
     types: string[]; // 全上映種別
-    manages: Manage[]; // 公開スケジュール
+    manages: TManage[]; // 公開スケジュール
 };
 
 // 公開スケジュール
-export type Manage = {
+export type TManage = {
     id: number; // 上映管理ID
     day: string; // 上映日
     start: string; // 上映開始時間

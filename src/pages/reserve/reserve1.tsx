@@ -7,16 +7,22 @@ import { ReserveContainer } from '@/components/ornagisms/reserve/ReserveContaine
 import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
 import { SeatsContainerS } from '@/components/ornagisms/reserve/SeatsContainerS';
 import { Heading, Stack } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 export default function reserve1() {
+    const router = useRouter();
+    const handleRoute = () => {
+        router.push('reserve2');
+    };
+
     return (
         <>
             <SHead title='映画一覧' />
             <Header />
             <MainContainer>
                 <ReserveStepper index={0} />
-                <ReserveContainer>
+                <ReserveContainer onClick={handleRoute}>
                     <SeatsContainerS />
                 </ReserveContainer>
             </MainContainer>

@@ -3,6 +3,8 @@ import {
     Button,
     Card,
     CardBody,
+    CardHeader,
+    Heading,
     Input,
     Modal,
     ModalBody,
@@ -48,7 +50,12 @@ export const MovieCard = ({ movie }: Props) => {
                             height: 150,
                         }}
                     />
-                    <p>{movie.title}</p>
+                    <CardBody>
+                        <Heading size='sm'>
+                            {movie.title.substring(0, 12)}
+                            {movie.title.length > 12 && '...'}
+                        </Heading>
+                    </CardBody>
                     {/* {select && <p>説明文あああああ</p>} */}
                 </Card>
             </motion.div>

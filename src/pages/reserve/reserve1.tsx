@@ -16,6 +16,10 @@ export default function reserve1() {
         router.push('reserve2');
     };
 
+    const handleClickSeat = () => {
+        console.log('clicked');
+    };
+
     return (
         <>
             <SHead title='映画一覧' />
@@ -23,7 +27,7 @@ export default function reserve1() {
             <MainContainer>
                 <ReserveStepper index={0} />
                 <ReserveContainer onClick={handleRoute}>
-                    <SeatsContainerS />
+                    <SeatsContainerS onClick={handleClickSeat} />
                 </ReserveContainer>
             </MainContainer>
         </>

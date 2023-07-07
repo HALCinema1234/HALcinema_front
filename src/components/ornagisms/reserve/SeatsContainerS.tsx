@@ -7,7 +7,11 @@ const alphabets = Array.apply(null, new Array(26)).map((v, i) => {
     return String.fromCharCode(start + i);
 }, {});
 
-export const SeatsContainerS = () => {
+type Props = {
+    onClick: () => void;
+};
+
+export const SeatsContainerS = ({ onClick }: Props) => {
     return (
         <Container
             style={{
@@ -24,7 +28,7 @@ export const SeatsContainerS = () => {
                             {alphabets[i / 8]}
                         </Text>
                     )}
-                    <Seat key={i} label={`${alphabets[Math.floor(i / 8)]}${i + 1}`} state='vacant' />
+                    <Seat key={i} label={`${alphabets[Math.floor(i / 8)]}${i + 1}`} state='vacant' onClick={onClick} />
                     {i % 8 == 7 && (
                         <Text key={alphabets[i / 8]} fontSize={36}>
                             {alphabets[i / 8 - 0.875]}

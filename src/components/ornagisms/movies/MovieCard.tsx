@@ -38,7 +38,7 @@ export const MovieCard = ({ movie }: Props) => {
             >
                 <Card>
                     <Image
-                        src={''}
+                        src={'/' + movie.thumbnail}
                         alt=''
                         width={300}
                         height={100}

@@ -10,6 +10,7 @@ export type TMovie = {
     on_air: boolean; // 公開中(1:true)/公開予定(0:false)か
     age_restrictions: number; // 年齢制限
     types: string[]; // 上映種別
+    movieInfo: TMovieInfo;
 };
 
 // ===============================================================
@@ -17,9 +18,6 @@ export type TMovie = {
 // ===============================================================
 // 映画の詳細と一週間分のスケジュールを取得
 export type TMovieInfo = {
-    title: string; // 映画タイトル
-    start: string; // 公開開始日
-    age_restrictions: number; // 年齢制限
     data: string; // 映画のデータ(監督、出演など)
     introduction: string; // イントロダクション
     time: number; // 映画の長さ(分)

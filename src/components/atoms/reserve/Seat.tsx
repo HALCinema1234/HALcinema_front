@@ -12,6 +12,7 @@ export const Seat = ({ state, label }: Props) => {
             colorScheme={state === 'reserved' ? 'blackAlpha' : state === 'selected' ? 'orange' : 'blue'}
             size='sm'
             isDisabled={state === 'reserved' ? true : false}
+            style={{ width: '50px', height: '50px' }}
         >
             {label}
         </Button>

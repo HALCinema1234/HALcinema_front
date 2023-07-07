@@ -53,7 +53,7 @@ export default function Movie() {
 
 const SMovieContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     grid-row-gap: 50px;
     padding: 20px;

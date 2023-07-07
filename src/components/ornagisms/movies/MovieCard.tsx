@@ -67,7 +67,7 @@ export const MovieCard = ({ movie }: Props) => {
                             }}
                         />
                         <Text>{movie.title}</Text>
-                        <Text>{movie.description}</Text>
+                        <Text>{movie}</Text>
                         <Text>{movie.price}円</Text>
                         <Text>上映時間：{movie.time}</Text>
                         <Input

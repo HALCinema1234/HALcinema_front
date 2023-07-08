@@ -8,6 +8,7 @@ import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
 import { SeatsContainerS } from '@/components/ornagisms/reserve/SeatsContainerS';
 import { TSeat } from '@/types/seat';
 import { Heading, Stack } from '@chakra-ui/react';
+import { log } from 'console';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -22,8 +23,9 @@ export default function reserve1() {
     // 座席をクリックしたときの処理
     const handleClickSeat = (seat: TSeat) => {
         seats.some((s) => s.row === seat.row && s.col === seat.col)
-            ? setSeat((prev) => prev.filter((s) => s.row !== seat.row && s.col !== seat.col)) // 座席を選択したら、座席の一覧から削除
+            ? setSeat((prev) => prev.filter((s) => s.row !== seat.row || s.col !== seat.col)) // 座席を選択したら、座席の一覧から削除
             : setSeat((prev) => [...prev, seat]); // 座席を選択したら、座席の一覧に追加
+        console.log(seats);
     };
 
     return (

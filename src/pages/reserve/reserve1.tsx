@@ -19,9 +19,9 @@ export default function reserve1() {
         router.push('reserve2');
     };
 
-    const handleClickSeat = () => {
+    const handleClickSeat = (seat: TSeat) => {
         console.log('clicked');
-        setSeat((prev) => [...prev, { row: 'A', col: 1, state: 'selected' }]); // 座席を選択したら、座席の一覧に追加
+        setSeat((prev) => [...prev, seat]); // 座席を選択したら、座席の一覧に追加
     };
 
     return (
@@ -31,7 +31,7 @@ export default function reserve1() {
             <MainContainer>
                 <ReserveStepper index={0} />
                 <ReserveContainer onClick={handleRoute}>
-                    <SeatsContainerS onClick={handleClickSeat} seats={seats} />
+                    <SeatsContainerS onClick={(seat) => handleClickSeat(seat)} seats={seats} />
                 </ReserveContainer>
             </MainContainer>
         </>

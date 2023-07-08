@@ -3,13 +3,14 @@ import { TSeat } from '@/types/seat';
 import { Box, Center, Container, Text } from '@chakra-ui/react';
 import React from 'react';
 
+// 座席の一覧を受け取って、座席の状態を変換する
 const start = 'A'.charCodeAt(0);
 const alphabets = Array.apply(null, new Array(26)).map((v, i) => {
     return String.fromCharCode(start + i);
 }, {});
 
 type Props = {
-    onClick: () => void;
+    onClick: (seat: TSeat) => void;
     seats: TSeat[];
 };
 
@@ -21,14 +22,23 @@ export const SeatsContainerS = ({ seats, onClick }: Props) => {
         return { id: row * 8 + col, state: seat.state };
     };
 
+    // 座席の一覧を受け取って、座席の状態を変換する
     const convertSeatsToNumber = (seats: TSeat[]) => {
         return seats.map((seat) => convertSeatToNumber(seat));
     };
 
     const selectedSeats = convertSeatsToNumber(seats); // シートの状態を数値の配列に変換したもの
 
-    const isSelectedSeatsContainId = (id: number) => {
+    // 座席の一覧から、指定したidの座席が選択されているかどうかを判定する
+    const isSelectedSeatsContainId = (id: number): boolean => {
         return selectedSeats.some((seat) => seat.id === id);
+    };
+
+    // 座席の一覧から、指定したidの座席を取得する
+    const convertIdToSeat = (id: number): TSeat => {
+        const row = Math.floor(id / 8);
+        const col = (id % 8) + 1;
+        return { row: alphabets[row], col: col, state: 'selected' };
     };
 
     return (
@@ -50,8 +60,10 @@ export const SeatsContainerS = ({ seats, onClick }: Props) => {
                     <Seat
                         key={i}
                         label={`${alphabets[Math.floor(i / 8)]}${i + 1}`}
-                        state={isSelectedSeatsContainId(i) ? selectedSeats[i].state! : 'vacant'}
-                        onClick={onClick}
+                        state={
+                            isSelectedSeatsContainId(i) ? selectedSeats.find((seat) => seat.id == i)?.state! : 'vacant'
+                        }
+                        onClick={() => onClick(convertIdToSeat(i))}
                     />
                     {i % 8 == 7 && (
                         <Text key={alphabets[i / 8]} fontSize={36}>

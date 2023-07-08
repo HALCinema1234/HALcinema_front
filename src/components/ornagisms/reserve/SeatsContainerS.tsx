@@ -15,7 +15,7 @@ type Props = {
 
 export const SeatsContainerS = ({ seats, onClick }: Props) => {
     // 座席の一覧を受け取って、座席の状態を変換する
-    const convertSeatToNumber = (seat: TSeat): { id: number; state?: string } => {
+    const convertSeatToNumber = (seat: TSeat): { id: number; state?: 'vacant' | 'reserved' | 'selected' } => {
         const row = seat.row.charCodeAt(0) - start;
         const col = seat.col - 1;
         return { id: row * 8 + col, state: seat.state };
@@ -50,7 +50,7 @@ export const SeatsContainerS = ({ seats, onClick }: Props) => {
                     <Seat
                         key={i}
                         label={`${alphabets[Math.floor(i / 8)]}${i + 1}`}
-                        state={isSelectedSeatsContainId(i) ? 'reserved' : 'vacant'}
+                        state={isSelectedSeatsContainId(i) ? selectedSeats[i].state! : 'vacant'}
                         onClick={onClick}
                     />
                     {i % 8 == 7 && (

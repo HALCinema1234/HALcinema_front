@@ -59,7 +59,7 @@ export const SeatsContainerS = ({ seats, onClick }: Props) => {
                     )}
                     <Seat
                         key={i}
-                        label={`${alphabets[Math.floor(i / 8)]}${i + 1}`}
+                        label={`${alphabets[Math.floor(i / 8)]}${(i + 1) % 8 == 0 ? 8 : (i + 1) % 8}`}
                         state={
                             isSelectedSeatsContainId(i) ? selectedSeats.find((seat) => seat.id == i)?.state! : 'vacant'
                         }

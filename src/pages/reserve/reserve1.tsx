@@ -13,7 +13,7 @@ import React from 'react';
 
 export default function reserve1() {
     const router = useRouter();
-    const [seats, setSeat] = React.useState<TSeat[]>([]);
+    const [seats, setSeat] = React.useState<TSeat[]>([]); // 座席の一覧と状態を管理
 
     const handleRoute = () => {
         router.push('reserve2');

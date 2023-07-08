@@ -5,4 +5,5 @@
 export type TSeat = {
     row: string; // 行
     col: number; // 列
+    state?: 'vacant' | 'reserved' | 'selected'; // 状態
 };

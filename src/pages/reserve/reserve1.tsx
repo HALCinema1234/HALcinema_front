@@ -19,9 +19,11 @@ export default function reserve1() {
         router.push('reserve2');
     };
 
+    // 座席をクリックしたときの処理
     const handleClickSeat = (seat: TSeat) => {
-        console.log('clicked');
-        setSeat((prev) => [...prev, seat]); // 座席を選択したら、座席の一覧に追加
+        seats.some((s) => s.row === seat.row && s.col === seat.col)
+            ? setSeat((prev) => prev.filter((s) => s.row !== seat.row && s.col !== seat.col)) // 座席を選択したら、座席の一覧から削除
+            : setSeat((prev) => [...prev, seat]); // 座席を選択したら、座席の一覧に追加
     };
 
     return (

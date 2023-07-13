@@ -17,7 +17,8 @@ export default function Movie() {
     const { data, error } = useSWR<TMovie[]>(process.env.NEXT_PUBLIC_API_BASE_URL + 'movies', fetcher);
 
     console.log(data);
-    if (!data) return <></>;
+    if (error) return <>エラーが発生しました</>;
+    if (!data) return <>データがありません</>;
     const MovieCardContainer = () => (
         <SMovieContainer>
             {data.map((movie) => (

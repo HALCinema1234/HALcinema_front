@@ -57,7 +57,7 @@ export const MovieCard = ({ movie }: Props) => {
                             {movie.title.length > 12 && '...'}
                         </Heading>
                         {movie.types.map((type, i) => (
-                            <Badge key={i} colorScheme='green' style={{ marginRight: 5 }}>
+                            <Badge key={i} style={{ marginRight: 5 }}>
                                 {type}
                             </Badge>
                         ))}

@@ -22,7 +22,7 @@ export default function Movie() {
     const MovieCardContainer = () => (
         <SMovieContainer>
             {data.map((movie) => (
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} key={movie.id}/>
             ))}
         </SMovieContainer>
     );

@@ -56,7 +56,11 @@ export const MovieCard = ({ movie }: Props) => {
                             {movie.title.substring(0, 12)}
                             {movie.title.length > 12 && '...'}
                         </Heading>
-                        <Badge>aaaa</Badge>
+                        {movie.types.map((type, i) => (
+                            <Badge key={i} colorScheme='green' style={{ marginRight: 5 }}>
+                                {type}
+                            </Badge>
+                        ))}
                     </CardBody>
                     {/* {select && <p>説明文あああああ</p>} */}
                 </Card>

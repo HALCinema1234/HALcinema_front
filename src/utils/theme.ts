@@ -4,4 +4,6 @@ const color = {
     // tertiary: '#F5F5F5',
     // dark: '#F5F5F5',
     // medium: '#F5F5F5',
+
 };
+const aaaa = "";

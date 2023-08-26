@@ -3,7 +3,7 @@ import { Header } from '@/components/ornagisms/Header';
 import { SHead } from '@/components/ornagisms/SHead';
 import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
 import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
-import { Button } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import React from 'react';
 
 export default function reserve2() {
@@ -13,8 +13,14 @@ export default function reserve2() {
             <Header />
             <MainContainer>
                 <ReserveStepper index={1} />
-                <Button colorScheme='cyan'>クレジットカード</Button>
-                <Button colorScheme='cyan'>PayPay</Button>
+                <Flex direction='column' alignItems='center'>
+                    <Button colorScheme='cyan' padding={7} width={500} marginBottom={5}>
+                        クレジットカード
+                    </Button>
+                    <Button colorScheme='cyan' padding={7} width={500}>
+                        PayPay
+                    </Button>
+                </Flex>
             </MainContainer>
         </>
     );

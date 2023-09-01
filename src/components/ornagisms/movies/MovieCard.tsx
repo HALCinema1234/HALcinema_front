@@ -22,6 +22,7 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 type Props = {
     movie: TMovie;

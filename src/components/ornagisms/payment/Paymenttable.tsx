@@ -26,6 +26,10 @@ export const Paymenttable = () => {
                         <Td isNumeric>1400円</Td>
                     </Tr>
                     <Tr>
+                        <Td>小学生以下</Td>
+                        <Td isNumeric>1000円</Td>
+                    </Tr>
+                    <Tr>
                         <Td>シニア（60歳以上）</Td>
                         <Td isNumeric>1000円</Td>
                     </Tr>

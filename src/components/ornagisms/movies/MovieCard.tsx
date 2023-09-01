@@ -67,8 +67,8 @@ export const MovieCard = ({ movie }: Props) => {
                             <Text>{movie.title}</Text>
                         </Grid>
 
-                        {/* <Text>{movie.movieInfo}</Text> */}
-                        {/* <Text>上映時間：{movie.movieInfo.time}</Text> */}
+                        <Text>{movie.data}</Text>
+                        <Text>上映時間：{movie.time}</Text>
                         <Input
                             placeholder='日時'
                             type='datetime-local'

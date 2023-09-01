@@ -45,7 +45,7 @@ export const MovieCard = ({ movie }: Props) => {
                         height: 150,
                     }}
                 />
-                <CardBody>
+                <CardBody maxH={140}>
                     <Heading size='sm'>
                         {movie.title.substring(0, 12)}
                         {movie.title.length > 12 && '...'}

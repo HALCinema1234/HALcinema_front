@@ -5,6 +5,7 @@ import {
     Card,
     CardBody,
     Grid,
+    GridItem,
     Heading,
     Input,
     Modal,
@@ -19,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 type Props = {
@@ -61,10 +62,11 @@ export const MovieCard = ({ movie }: Props) => {
                     <ModalHeader>映画の詳細</ModalHeader>
                     <ModalBody>
                         <Grid templateColumns='8fr 4fr'>
-                            <div style={{ backgroundColor: '#000' }} />
-                            <Text>{movie.title}</Text>
+                            <GridItem></GridItem>
+                            <GridItem>
+                                <Text>{movie.title}</Text>
+                            </GridItem>
                         </Grid>
-
                         <Text>{movie.data}</Text>
                         <Text>上映時間：{movie.time}</Text>
                         <Input

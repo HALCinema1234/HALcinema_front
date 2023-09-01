@@ -21,7 +21,6 @@ import {
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 type Props = {
@@ -68,9 +67,8 @@ export const MovieCard = ({ movie }: Props) => {
                             <Text>{movie.title}</Text>
                         </Grid>
 
-                        <Text>{movie.description}</Text>
-                        <Text>{movie.price}円</Text>
-                        <Text>上映時間：{movie.time}</Text>
+                        {/* <Text>{movie.movieInfo}</Text> */}
+                        {/* <Text>上映時間：{movie.movieInfo.time}</Text> */}
                         <Input
                             placeholder='日時'
                             type='datetime-local'

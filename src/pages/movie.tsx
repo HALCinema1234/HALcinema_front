@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] });
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Movie() {
-    const { data, error } = useSWR<TMovie[]>(process.env.NEXT_PUBLIC_API_BASE_URL + 'test/movies', fetcher);
+    const { data, error } = useSWR<TMovie[]>(process.env.NEXT_PUBLIC_API_BASE_URL + 'v1/movies', fetcher);
 
     console.log(data);
     if (error) return <>エラーが発生しました</>;
@@ -22,7 +22,7 @@ export default function Movie() {
     const MovieCardContainer = () => (
         <SMovieContainer>
             {data.map((movie) => (
-                <MovieCard movie={movie} key={movie.id}/>
+                <MovieCard movie={movie} key={movie.id} />
             ))}
         </SMovieContainer>
     );

@@ -5,9 +5,8 @@ import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
 import { TMovie } from '@/types/movie';
 import styled from '@emotion/styled';
 import { MainContainer } from '@/components/atoms/MainContainer';
-import { Grid, Heading, Select, Tab, TabList, Tabs } from '@chakra-ui/react';
+import { Grid, Heading, Tab, TabList, Tabs } from '@chakra-ui/react';
 import useSWR from 'swr';
-import { log } from 'console';
 
 const inter = Inter({ subsets: ['latin'] });
 

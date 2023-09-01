@@ -33,39 +33,31 @@ export const MovieCard = ({ movie }: Props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <>
-            <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onHoverStart={() => setSelect(true)}
-                onHoverEnd={() => setSelect(false)}
-                onTap={() => onOpen()}
-            >
-                <Card>
-                    <Image
-                        src={'/' + movie.thumbnail}
-                        alt=''
-                        width={300}
-                        height={100}
-                        style={{
-                            borderRadius: '10px 10px 0 0',
-                            objectFit: 'cover',
-                            height: 150,
-                        }}
-                    />
-                    <CardBody>
-                        <Heading size='sm'>
-                            {movie.title.substring(0, 12)}
-                            {movie.title.length > 12 && '...'}
-                        </Heading>
-                        {movie.types.map((type, i) => (
-                            <Badge key={i} style={{ marginRight: 5 }}>
-                                {type}
-                            </Badge>
-                        ))}
-                    </CardBody>
-                    {/* {select && <p>説明文あああああ</p>} */}
-                </Card>
-            </motion.div>
+            <Card onClick={() => onOpen()} _hover={{ opacity: 0.8, transition: 0.5, cursor: 'pointer' }}>
+                <Image
+                    src={'/' + movie.thumbnail}
+                    alt=''
+                    width={300}
+                    height={100}
+                    style={{
+                        borderRadius: '10px 10px 0 0',
+                        objectFit: 'cover',
+                        height: 150,
+                    }}
+                />
+                <CardBody>
+                    <Heading size='sm'>
+                        {movie.title.substring(0, 12)}
+                        {movie.title.length > 12 && '...'}
+                    </Heading>
+                    {movie.types.map((type, i) => (
+                        <Badge key={i} style={{ marginRight: 5 }}>
+                            {type}
+                        </Badge>
+                    ))}
+                </CardBody>
+                {/* {select && <p>説明文あああああ</p>} */}
+            </Card>
             <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
                 <ModalOverlay />
                 <ModalContent>

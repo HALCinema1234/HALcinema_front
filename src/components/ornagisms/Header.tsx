@@ -9,7 +9,8 @@ type Props = {};
 export const Header = () => {
     return (
         <SHeader>
-            <HeaderLogo />
+            {/* <HeaderLogo /> */}
+            <div></div>
             <HeaderNav name='ホーム' href='/' />
             <HeaderNav name='映画一覧' href='/movie' />
             <HeaderNav name='料金一覧' href='/payment' />
@@ -25,8 +26,9 @@ const SHeader = styled.header`
     left: 0;
     width: 100vw;
     height: 60px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #38b2ac;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     z-index: 100;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

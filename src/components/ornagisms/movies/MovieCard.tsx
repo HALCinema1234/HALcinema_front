@@ -27,7 +27,6 @@ type Props = {
 };
 
 export const MovieCard = ({ movie }: Props) => {
-    const [select, setSelect] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <>

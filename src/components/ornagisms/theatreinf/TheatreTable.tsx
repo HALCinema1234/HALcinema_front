@@ -22,7 +22,7 @@ export const TheatreTable = () => {
                     </Tr>
                     <Tr>
                         <Td>営業時間</Td>
-                        <Td>10:00~22:00</Td>
+                        <Td>10:00~翌1:00</Td>
                     </Tr>
                     <Tr>
                         <Td>定休日</Td>

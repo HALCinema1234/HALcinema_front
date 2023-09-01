@@ -20,7 +20,15 @@ const SNavButton = styled.button`
     /* width: 40px; */
     height: 40px;
     margin: 0 auto;
-
+    font-weight: bold;
+    padding: 0 15px;
+    border-radius: 5px;
+    font-size: 18px;
     background-size: 24px 24px;
     cursor: pointer;
+
+    :hover {
+        background-color: #298581;
+        transition: 0.4s;
+    }
 `;

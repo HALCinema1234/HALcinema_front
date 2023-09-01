@@ -5,6 +5,7 @@ import {
     Card,
     CardBody,
     CardHeader,
+    Grid,
     Heading,
     Input,
     Modal,
@@ -70,16 +71,11 @@ export const MovieCard = ({ movie }: Props) => {
                 <ModalContent>
                     <ModalHeader>映画の詳細</ModalHeader>
                     <ModalBody>
-                        <Image
-                            src={''}
-                            alt=''
-                            width={300}
-                            height={100}
-                            style={{
-                                borderRadius: '10px 10px 0 0',
-                            }}
-                        />
-                        <Text>{movie.title}</Text>
+                        <Grid templateColumns='8fr 4fr'>
+                            <div style={{ backgroundColor: '#000' }} />
+                            <Text>{movie.title}</Text>
+                        </Grid>
+
                         <Text>{movie.description}</Text>
                         <Text>{movie.price}円</Text>
                         <Text>上映時間：{movie.time}</Text>

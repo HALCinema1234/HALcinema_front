@@ -5,7 +5,7 @@ import { MovieCard } from '@/components/ornagisms/movies/MovieCard';
 import { TMovie } from '@/types/movie';
 import styled from '@emotion/styled';
 import { MainContainer } from '@/components/atoms/MainContainer';
-import { Heading, Select, Tab, TabList, Tabs } from '@chakra-ui/react';
+import { Grid, Heading, Select, Tab, TabList, Tabs } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { log } from 'console';
 
@@ -20,11 +20,11 @@ export default function Movie() {
     if (error) return <>エラーが発生しました</>;
     if (!data) return <>データがありません</>;
     const MovieCardContainer = () => (
-        <SMovieContainer>
+        <Grid templateColumns='repeat(4, 1fr)' gap={4} style={{ marginTop: 20 }}>
             {data.map((movie) => (
                 <MovieCard movie={movie} key={movie.id} />
             ))}
-        </SMovieContainer>
+        </Grid>
     );
 
     return (

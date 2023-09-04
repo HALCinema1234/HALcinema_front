@@ -22,6 +22,7 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
+import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 type Props = {
@@ -30,6 +31,14 @@ type Props = {
 
 export const MovieCard = ({ movie }: Props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const images: ReactImageGalleryItem[] = movie.images.map((image) => {
+        return {
+            original: image,
+            thumbnail: image,
+        };
+    });
+
     return (
         <>
             <Card onClick={() => onOpen()} _hover={{ opacity: 0.8, transition: 0.5, cursor: 'pointer' }}>
@@ -63,10 +72,8 @@ export const MovieCard = ({ movie }: Props) => {
                     <ModalHeader>映画の詳細</ModalHeader>
                     <ModalBody>
                         <Grid templateColumns='8fr 4fr'>
-                            <GridItem></GridItem>
-                            <GridItem>
-                                <Text>{movie.title}</Text>
-                            </GridItem>
+                            <ImageGallery items={images} />
+                            <Text>{movie.title}</Text>
                         </Grid>
                         <Text>{movie.data}</Text>
                         <Text>上映時間：{movie.time}</Text>

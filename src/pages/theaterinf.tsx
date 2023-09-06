@@ -2,6 +2,7 @@ import { MainContainer } from '@/components/atoms/MainContainer';
 import { Header } from '@/components/ornagisms/Header';
 import { SHead } from '@/components/ornagisms/SHead';
 import { TheatreTable } from '@/components/ornagisms/theatreinf/TheatreTable';
+import { Card, CardBody } from '@chakra-ui/react';
 import Image from 'next/image';
 import React from 'react';
 
@@ -27,8 +28,16 @@ export default function Theaterinf() {
                         gridTemplateColumns: '4fr 8fr',
                     }}
                 >
-                    <Image src='/halimage.png' width={300} height={800} alt='' />
-                    <TheatreTable />
+                    <Card>
+                        <CardBody maxH={720}>
+                            <Image src='/halimage.png' width={230} height={700} alt='' />
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardBody>
+                            <TheatreTable />
+                        </CardBody>
+                    </Card>
                 </div>
             </MainContainer>
         </>

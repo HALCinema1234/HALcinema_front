@@ -5,6 +5,7 @@ import { MainContainer } from '@/components/atoms/MainContainer';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import { Card } from '@chakra-ui/react';
+import PageTitle from '@/components/atoms/PageTitle';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,6 +16,7 @@ export default function Home() {
             <Header />
 
             <MainContainer>
+                <PageTitle title='HALシネマ' />
                 <Image
                     src={'/dummy/Interstellar-HD_1920x1200.jpg'}
                     width={1200}

@@ -1,4 +1,5 @@
 import { MainContainer } from '@/components/atoms/MainContainer';
+import PageTitle from '@/components/atoms/PageTitle';
 import { Header } from '@/components/ornagisms/Header';
 import { SHead } from '@/components/ornagisms/SHead';
 import { TheatreTable } from '@/components/ornagisms/theatreinf/TheatreTable';
@@ -13,14 +14,7 @@ export default function Theaterinf() {
             <Header />
 
             <MainContainer>
-                <h1
-                    style={{
-                        fontSize: '50px',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    施設情報
-                </h1>
+                <PageTitle title='施設情報' />
 
                 <div
                     style={{

@@ -8,6 +8,7 @@ import { MainContainer } from '@/components/atoms/MainContainer';
 import { Heading, Select, Tab, TabList, Tabs } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { log } from 'console';
+import PageTitle from '@/components/atoms/PageTitle';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +23,7 @@ export default function Movie() {
     const MovieCardContainer = () => (
         <SMovieContainer>
             {data.map((movie) => (
-                <MovieCard movie={movie} key={movie.id}/>
+                <MovieCard movie={movie} key={movie.id} />
             ))}
         </SMovieContainer>
     );
@@ -32,7 +33,7 @@ export default function Movie() {
             <SHead title='HALシネマ' />
             <Header />
             <MainContainer>
-                <Heading>映画一覧</Heading>
+                <PageTitle title='映画一覧' />
                 <Tabs variant='soft-rounded' colorScheme='blue' style={{ marginTop: 20 }}>
                     <TabList>
                         <Tab>上映中</Tab>

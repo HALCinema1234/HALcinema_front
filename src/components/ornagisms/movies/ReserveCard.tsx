@@ -1,22 +1,24 @@
 import { TManage } from '@/types/movie';
 import {
-    Accordion,
     AccordionButton,
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
     Badge,
     Box,
+    Button,
     Text,
 } from '@chakra-ui/react';
 import React from 'react';
 
 type Props = {
-    manage: TManage;
+    manages: TManage[];
 };
 
-export const ReserveCard = ({ manage }: Props) => {
-    console.log(manage);
+export const ReserveCard = ({ manages }: Props) => {
+    console.log(manages);
+
+    const manage = manages[0];
 
     return (
         <AccordionItem>
@@ -34,9 +36,16 @@ export const ReserveCard = ({ manage }: Props) => {
                 </AccordionButton>
             </Text>
             <AccordionPanel pb={4}>
-                <Text fontSize='l' fontWeight='bold'>
-                    上映時間
-                </Text>
+                {manages.map((m) => (
+                    <Box>
+                        <Text fontSize='l' fontWeight='bold'>
+                            {`${m.start.slice(0, -3)} ~ ${m.end.slice(0, -3)}`}
+                        </Text>
+                        <Text fontSize='l'>{m.types}</Text>
+                    </Box>
+                ))}
+
+                <Button colorScheme='green'>予約する</Button>
             </AccordionPanel>
         </AccordionItem>
     );

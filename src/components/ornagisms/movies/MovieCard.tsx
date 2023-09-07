@@ -1,4 +1,4 @@
-import { TMovie } from '@/types/movie';
+import { TManage, TMovie } from '@/types/movie';
 import {
     Accordion,
     Badge,
@@ -44,6 +44,15 @@ export const MovieCard = ({ movie }: Props) => {
         };
     });
     console.log(movie.manages);
+
+    const managesCollectedByDay = movie.manages.reduce((acc, cur) => {
+        const day = cur.day;
+        if (!acc[day]) {
+            acc[day] = [];
+        }
+        acc[day].push(cur);
+        return acc;
+    }, {} as { [key: string]: TManage[] });
 
     return (
         <>
@@ -142,8 +151,8 @@ export const MovieCard = ({ movie }: Props) => {
                                     予約
                                 </Text>
                                 <Accordion defaultIndex={[0]} allowMultiple p={4}>
-                                    {movie.manages.map((manage) => (
-                                        <ReserveCard manage={manage} />
+                                    {Object.keys(managesCollectedByDay).map((day, i) => (
+                                        <ReserveCard manages={managesCollectedByDay[day]} />
                                     ))}
                                 </Accordion>
                             </Box>

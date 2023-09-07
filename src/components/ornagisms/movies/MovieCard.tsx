@@ -1,11 +1,13 @@
-import { TMovie } from '@/types/movie';
+import { TManage, TMovie } from '@/types/movie';
 import {
+    Accordion,
     Badge,
+    Box,
     Button,
     Card,
     CardBody,
-    CardHeader,
     Grid,
+    GridItem,
     Heading,
     Input,
     Modal,
@@ -15,22 +17,43 @@ import {
     ModalFooter,
     ModalHeader,
     ModalOverlay,
+    Stack,
     Text,
     useDisclosure,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import Link from 'next/link';
+import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
+import '@/styles/galally.module.css';
+import { ReserveCard } from './ReserveCard';
 
 type Props = {
     movie: TMovie;
 };
 
 export const MovieCard = ({ movie }: Props) => {
-    const [select, setSelect] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const images: ReactImageGalleryItem[] = movie.images.map((image) => {
+        return {
+            original: image,
+            thumbnail: image,
+        };
+    });
+    console.log(movie.manages);
+
+    const managesCollectedByDay = movie.manages.reduce((acc, cur) => {
+        const day = cur.day;
+        if (!acc[day]) {
+            acc[day] = [];
+        }
+        acc[day].push(cur);
+        return acc;
+    }, {} as { [key: string]: TManage[] });
+
     return (
         <>
             <Card onClick={() => onOpen()} _hover={{ opacity: 0.8, transition: 0.5, cursor: 'pointer' }}>
@@ -56,33 +79,89 @@ export const MovieCard = ({ movie }: Props) => {
                         </Badge>
                     ))}
                 </CardBody>
-                {/* {select && <p>説明文あああああ</p>} */}
             </Card>
-            <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
+            <Modal isOpen={isOpen} onClose={onClose} size='5xl' scrollBehavior='inside'>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>映画の詳細</ModalHeader>
+                    <ModalHeader>
+                        {movie.title + ' '}
+                        {movie.on_air ? (
+                            <Badge colorScheme='green'>上映中</Badge>
+                        ) : (
+                            <Badge colorScheme='red'>上映予定</Badge>
+                        )}
+                    </ModalHeader>
                     <ModalBody>
-                        <Grid templateColumns='8fr 4fr'>
-                            <div style={{ backgroundColor: '#000' }} />
-                            <Text>{movie.title}</Text>
+                        <Grid templateColumns='8fr 4fr' gap={4}>
+                            {/* <GridItem> */}
+                            <ImageGallery items={images} />
+                            {/* </GridItem> */}
+                            <GridItem p={4}>
+                                <Stack spacing={4}>
+                                    <Image
+                                        src={'/' + movie.thumbnail}
+                                        alt=''
+                                        width={300}
+                                        height={100}
+                                        style={{ width: '100%' }}
+                                    />{' '}
+                                    <Box></Box>
+                                    <Box>
+                                        <Text fontSize='l' fontWeight='bold'>
+                                            上映時間
+                                        </Text>
+                                        <Text fontSize='l'>{movie.time}分</Text>
+                                    </Box>
+                                    <Box>
+                                        <Text fontSize='l' fontWeight='bold'>
+                                            年齢制限
+                                        </Text>
+                                        <Text fontSize='l'>{movie.age_restrictions}</Text>
+                                    </Box>
+                                    <Box>
+                                        <Text fontSize='l' fontWeight='bold'>
+                                            タグ
+                                        </Text>
+                                        <Box>
+                                            {movie.types.map((type, i) => (
+                                                <Badge key={i} style={{ marginRight: 5 }} fontSize='l'>
+                                                    {type}
+                                                </Badge>
+                                            ))}
+                                        </Box>
+                                    </Box>
+                                </Stack>
+                            </GridItem>
                         </Grid>
-
-                        <Text>{movie.description}</Text>
-                        <Text>{movie.price}円</Text>
-                        <Text>上映時間：{movie.time}</Text>
-                        <Input
-                            placeholder='日時'
-                            type='datetime-local'
-                            style={{
-                                marginBottom: '10px',
-                            }}
-                        />
+                        <Stack spacing={4}>
+                            <Box>
+                                <Text fontSize='l' fontWeight='bold'>
+                                    あらすじ
+                                </Text>
+                                <Text>{movie.introduction}</Text>
+                            </Box>
+                            <Box>
+                                <Text fontSize='l' fontWeight='bold'>
+                                    スタッフ
+                                </Text>
+                                <Text>{movie.data}</Text>
+                            </Box>
+                            <Box>
+                                <Text fontSize='l' fontWeight='bold'>
+                                    予約
+                                </Text>
+                                <Accordion defaultIndex={[0]} allowMultiple p={4}>
+                                    {Object.keys(managesCollectedByDay).map((day, i) => (
+                                        <ReserveCard manages={managesCollectedByDay[day]} />
+                                    ))}
+                                </Accordion>
+                            </Box>
+                        </Stack>
                     </ModalBody>
                     <ModalFooter>
-                        <Link href='/reserve/reserve1'>
+                        {/* <Link href='/reserve/reserve1'>
                             <Button colorScheme='green'>予約する</Button>
-                        </Link>
+                        </Link> */}
                     </ModalFooter>
                     <ModalCloseButton />
                 </ModalContent>

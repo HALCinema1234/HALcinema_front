@@ -26,11 +26,11 @@ export const Ticket = ({ ticket }: Props) => {
                     </StatNumber>
                 </Box>
                 <Box my='auto' alignContent='center'>
-                    <Button colorScheme='green' size='sm' mr={1}>
+                    <Button colorScheme='teal' size='sm' mr={1}>
                         -
                     </Button>{' '}
                     1{' '}
-                    <Button colorScheme='green' size='sm' ml={1}>
+                    <Button colorScheme='teal' size='sm' ml={1}>
                         +
                     </Button>
                 </Box>

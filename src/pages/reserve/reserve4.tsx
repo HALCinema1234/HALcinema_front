@@ -26,6 +26,7 @@ export default function reserve4() {
 
     const handlePutReserveData = async () => {
         const UnreservedSeats = reserveInfo.seats.filter((seat) => seat.state != 'reserved');
+
         try {
             await axios.post(
                 process.env.NEXT_PUBLIC_API_BASE_URL! + 'v1/reserves',
@@ -35,7 +36,8 @@ export default function reserve4() {
                     seat: UnreservedSeats.map((seat, i) => {
                         return {
                             name: formatSeatToName(seat),
-                            ticket: reserveInfo.tickets[i].id,
+                            // TODO: ここでseatのidを取得する
+                            ticket: reserveInfo.tickets[0].id,
                         };
                     }),
                 },

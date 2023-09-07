@@ -33,13 +33,29 @@ export const Ticket = ({ ticket, handleClick }: Props) => {
                     </StatNumber>
                 </Box>
                 <Box my='auto' alignContent='center'>
-                    <Button colorScheme='teal' size='sm' mr={1} onClick={() => handleClick(ticket, false)}>
+                    <Button
+                        colorScheme='teal'
+                        size='sm'
+                        mr={1}
+                        onClick={() => handleClick(ticket, false)}
+                        isDisabled={
+                            selectedTicket?.count === undefined ? true : selectedTicket?.count < 1 ? true : false
+                        }
+                    >
                         -
                     </Button>{' '}
-                    <Text as='div' display='inline-block' fontWeight='bold' width={5} textAlign='center'>
+                    <Text as='div' display='inline-block' fontWeight='bold' width={8} textAlign='center'>
                         {selectedTicket?.count === undefined ? 0 : selectedTicket?.count}
                     </Text>{' '}
-                    <Button colorScheme='teal' size='sm' ml={1} onClick={() => handleClick(ticket, true)}>
+                    <Button
+                        colorScheme='teal'
+                        size='sm'
+                        ml={1}
+                        onClick={() => handleClick(ticket, true)}
+                        isDisabled={
+                            selectedTicket?.count === undefined ? false : selectedTicket?.count > 9 ? true : false
+                        }
+                    >
                         +
                     </Button>
                 </Box>

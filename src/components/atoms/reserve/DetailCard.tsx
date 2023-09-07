@@ -70,7 +70,11 @@ export const DetailCard = ({ onClick }: Props) => {
                         </Heading>
                         <Text pt='2' fontSize='sm'>
                             {reserveInfo.seats.length > 0
-                                ? reserveInfo.seats.map((seat) => `${seat.row}${seat.col}  `)
+                                ? reserveInfo.seats.map((seat) => {
+                                      let result = '';
+                                      seat.state === 'reserved' ? (result = '') : (result = `${seat.row}${seat.col}  `);
+                                      return result;
+                                  })
                                 : '未選択'}
                         </Text>
                     </Box>{' '}

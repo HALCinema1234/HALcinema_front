@@ -6,13 +6,13 @@ import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
 import { SeatsContainerS } from '@/components/ornagisms/reserve/SeatsContainerS';
 import { reserveState } from '@/recoil/states';
 import { TSeat } from '@/types/seat';
+import axios from 'axios';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
 export default function reserve1() {
     const router = useRouter();
-    const [seats, setSeat] = React.useState<TSeat[]>([]); // 座席の一覧と状態を管理
 
     const [reserveInfo, setReserveInfo] = useRecoilState(reserveState);
 
@@ -32,6 +32,36 @@ export default function reserve1() {
                   seats: [...reserveInfo.seats, seat],
               });
     };
+
+    // 予約済の座席を取得
+    const fetchSeats = async () => {
+        // const res = await axios(process.env.NEXT_PUBLIC_API_BASE_URL + 'v1/seats' + reserveInfo.movieManage?.id);
+
+        const data: any = await axios.get(
+            process.env.NEXT_PUBLIC_API_BASE_URL + 'v1/seats/' + reserveInfo.movieManage?.id,
+            {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            },
+        );
+        console.log(data);
+
+        setReserveInfo({
+            ...reserveInfo,
+            // @ts-ignore
+            seats: data.data[1].map((seat) => ({
+                ...seat,
+                state: 'reserved',
+            })),
+        });
+    };
+
+    useEffect(() => {
+        (async () => {
+            await fetchSeats();
+        })();
+    }, []);
 
     return (
         <>

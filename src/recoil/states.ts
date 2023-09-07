@@ -3,11 +3,21 @@ import { TSeat } from '@/types/seat';
 import { TTicket } from '@/types/ticket';
 import { atom } from 'recoil';
 
-export const userState = atom({
+type TypeUserState = {
+    id: number | null;
+    name?: string;
+    nameKana?: string;
+    password?: string;
+    birthday?: string;
+    gender?: number;
+    phone?: number;
+    mailAddress?: string;
+};
+
+export const userState = atom<TypeUserState>({
     key: 'userState',
     default: {
-        name: 'John Doe',
-        age: 30,
+        id: null,
     },
 });
 

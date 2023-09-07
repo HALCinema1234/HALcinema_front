@@ -20,7 +20,7 @@ import React from 'react';
 
 const steps = [
     { title: '座席予約', description: '座席を選択してください' },
-    { title: '支払方法選択', description: '支払方法を選択してください' },
+    { title: 'チケット選択', description: 'チケットを選択してください' },
     { title: '予約確認', description: '以上で予約を確定しますか？' },
     { title: '予約完了', description: '予約完了しました' },
 ];
@@ -49,7 +49,7 @@ export const ReserveStepper = ({ index }: Props) => {
                     </Step>
                 ))}
             </Stepper>
-            <Box position='relative' padding='10'>
+            <Box position='relative' padding='5'>
                 <Divider />
                 <AbsoluteCenter px='4' fontSize='2xl'>
                     {steps[activeStep].description}

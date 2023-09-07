@@ -29,6 +29,9 @@ import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import '@/styles/galally.module.css';
 import { ReserveCard } from './ReserveCard';
+import { useRecoilState } from 'recoil';
+import { reserveState } from '@/recoil/states';
+import { useRouter } from 'next/router';
 
 type Props = {
     movie: TMovie;
@@ -53,6 +56,20 @@ export const MovieCard = ({ movie }: Props) => {
         acc[day].push(cur);
         return acc;
     }, {} as { [key: string]: TManage[] });
+
+    const [reserveInfo, setReserveInfo] = useRecoilState(reserveState);
+    const router = useRouter();
+
+    const handleClickReserveButton = (manage: TManage) => {
+        setReserveInfo({
+            movie: movie,
+            movieManage: manage,
+            seats: [],
+            tickets: [],
+            payment: 0,
+        });
+        router.push('/reserve/reserve1');
+    };
 
     return (
         <>
@@ -152,7 +169,10 @@ export const MovieCard = ({ movie }: Props) => {
                                 </Text>
                                 <Accordion defaultIndex={[0]} allowMultiple p={4}>
                                     {Object.keys(managesCollectedByDay).map((day, i) => (
-                                        <ReserveCard manages={managesCollectedByDay[day]} />
+                                        <ReserveCard
+                                            manages={managesCollectedByDay[day]}
+                                            handleClickReserveButton={handleClickReserveButton}
+                                        />
                                     ))}
                                 </Accordion>
                             </Box>

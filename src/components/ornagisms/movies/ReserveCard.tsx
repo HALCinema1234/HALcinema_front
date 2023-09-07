@@ -19,11 +19,10 @@ import React from 'react';
 
 type Props = {
     manages: TManage[];
+    handleClickReserveButton: (manage: TManage) => void;
 };
 
-export const ReserveCard = ({ manages }: Props) => {
-    console.log(manages);
-
+export const ReserveCard = ({ manages, handleClickReserveButton }: Props) => {
     const manage = manages[0];
 
     return (
@@ -60,7 +59,11 @@ export const ReserveCard = ({ manages }: Props) => {
                                         ))}
                                     </Td>
                                     <Td>
-                                        <Button colorScheme='green' size='sm'>
+                                        <Button
+                                            colorScheme='green'
+                                            size='sm'
+                                            onClick={() => handleClickReserveButton(m)}
+                                        >
                                             予約する
                                         </Button>
                                     </Td>

@@ -8,6 +8,8 @@ import { MainContainer } from '@/components/atoms/MainContainer';
 import { Grid, Heading, Tab, TabList, Tabs } from '@chakra-ui/react';
 import useSWR from 'swr';
 
+import PageTitle from '@/components/atoms/PageTitle';
+
 const inter = Inter({ subsets: ['latin'] });
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -31,7 +33,7 @@ export default function Movie() {
             <SHead title='HALシネマ' />
             <Header />
             <MainContainer>
-                <Heading>映画一覧</Heading>
+                <PageTitle title='映画一覧' />
                 <Tabs variant='soft-rounded' colorScheme='blue' style={{ marginTop: 20 }}>
                     <TabList>
                         <Tab>上映中</Tab>

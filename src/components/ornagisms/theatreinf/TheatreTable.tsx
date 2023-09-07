@@ -4,7 +4,7 @@ import React from 'react';
 export const TheatreTable = () => {
     return (
         <TableContainer>
-            <Table variant='striped' colorScheme='teal' width={800}>
+            <Table variant='striped' colorScheme='teal' width={780}>
                 <Thead>
                     <Tr>
                         <Th>情報</Th>

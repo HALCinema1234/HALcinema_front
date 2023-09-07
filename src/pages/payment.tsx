@@ -1,4 +1,5 @@
 import { MainContainer } from '@/components/atoms/MainContainer';
+import PageTitle from '@/components/atoms/PageTitle';
 import { Header } from '@/components/ornagisms/Header';
 import { SHead } from '@/components/ornagisms/SHead';
 import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
@@ -12,15 +13,7 @@ export default function Payment() {
             <Header />
 
             <MainContainer>
-                <h1
-                    style={{
-                        fontSize: '50px',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                    }}
-                >
-                    チケット料金一覧
-                </h1>
+                <PageTitle title='チケット料金一覧' />
                 <Flex direction='column' alignItems='center'>
                     <Paymenttable />
                 </Flex>

@@ -4,9 +4,10 @@ import React from 'react';
 
 type Props = {
     ticket: TTicket;
+    handleClick: (ticket: TTicket, isPlus: boolean) => void;
 };
 
-export const Ticket = ({ ticket }: Props) => {
+export const Ticket = ({ ticket, handleClick }: Props) => {
     return (
         <Stat
             border={'1px solid'}
@@ -26,11 +27,11 @@ export const Ticket = ({ ticket }: Props) => {
                     </StatNumber>
                 </Box>
                 <Box my='auto' alignContent='center'>
-                    <Button colorScheme='teal' size='sm' mr={1}>
+                    <Button colorScheme='teal' size='sm' mr={1} onClick={() => handleClick(ticket, false)}>
                         -
                     </Button>{' '}
                     1{' '}
-                    <Button colorScheme='teal' size='sm' ml={1}>
+                    <Button colorScheme='teal' size='sm' ml={1} onClick={() => handleClick(ticket, true)}>
                         +
                     </Button>
                 </Box>

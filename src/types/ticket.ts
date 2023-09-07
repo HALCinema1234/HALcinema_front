@@ -2,6 +2,7 @@ export type TTicket = {
     id: number;
     name: string;
     price: number;
+    count?: number;
 };
 
 export const ticketList: TTicket[] = [

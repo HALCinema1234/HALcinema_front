@@ -1,5 +1,6 @@
 import { TManage, TMovie } from '@/types/movie';
 import { TSeat } from '@/types/seat';
+import { TTicket } from '@/types/ticket';
 import { atom } from 'recoil';
 
 export const userState = atom({
@@ -14,7 +15,7 @@ type TypeReserveState = {
     movie: TMovie | null;
     movieManage: TManage | null;
     seats: TSeat[];
-    tickets: string[];
+    tickets: TTicket[];
     payment: number;
 };
 

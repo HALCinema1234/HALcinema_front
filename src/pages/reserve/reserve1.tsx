@@ -1,14 +1,10 @@
 import { MainContainer } from '@/components/atoms/MainContainer';
-import { DetailCard } from '@/components/atoms/reserve/DetailCard';
 import { Header } from '@/components/ornagisms/Header';
 import { SHead } from '@/components/ornagisms/SHead';
-import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
 import { ReserveContainer } from '@/components/ornagisms/reserve/ReserveContainer';
 import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
 import { SeatsContainerS } from '@/components/ornagisms/reserve/SeatsContainerS';
 import { TSeat } from '@/types/seat';
-import { Heading, Stack } from '@chakra-ui/react';
-import { log } from 'console';
 import { useRouter } from 'next/router';
 import React from 'react';
 

@@ -1,3 +1,4 @@
+import { TManage, TMovie } from '@/types/movie';
 import { atom } from 'recoil';
 
 export const userState = atom({
@@ -8,10 +9,15 @@ export const userState = atom({
     },
 });
 
-export const reserveState = atom({
+type TypeReserveState = {
+    movie: TMovie | null;
+    movieManage: TManage | null;
+};
+
+export const reserveState = atom<TypeReserveState>({
     key: 'reserveState',
     default: {
-        name: 'John Doe',
-        age: 30,
+        movie: null,
+        movieManage: null,
     },
 });

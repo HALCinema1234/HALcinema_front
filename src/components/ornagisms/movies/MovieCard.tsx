@@ -41,6 +41,7 @@ export const MovieCard = ({ movie }: Props) => {
             thumbnail: image,
         };
     });
+    console.log(movie.manages);
 
     return (
         <>
@@ -133,6 +134,11 @@ export const MovieCard = ({ movie }: Props) => {
                                     スタッフ
                                 </Text>
                                 <Text>{movie.data}</Text>
+                            </Box>
+                            <Box>
+                                <Text fontSize='l' fontWeight='bold'>
+                                    予約
+                                </Text>
                             </Box>
                         </Stack>
                         <Input

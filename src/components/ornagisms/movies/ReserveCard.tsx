@@ -29,7 +29,7 @@ export const ReserveCard = ({ manages }: Props) => {
     return (
         <AccordionItem>
             <Text fontSize='l' fontWeight='bold'>
-                <AccordionButton _expanded={{ bg: 'tomato', color: 'white' }}>
+                <AccordionButton _expanded={{ bg: 'green', color: 'white' }}>
                     <Box flex='1' textAlign='left'>
                         {manage.day + `（${manage.screening_time}分）` + ' '}
                     </Box>

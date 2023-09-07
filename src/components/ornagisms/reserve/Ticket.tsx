@@ -1,6 +1,8 @@
+import { reserveState } from '@/recoil/states';
 import { TTicket } from '@/types/ticket';
-import { Box, Button, Flex, Stat, StatLabel, StatNumber, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, Stat, StatLabel, StatNumber, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
+import { useRecoilState } from 'recoil';
 
 type Props = {
     ticket: TTicket;
@@ -8,6 +10,10 @@ type Props = {
 };
 
 export const Ticket = ({ ticket, handleClick }: Props) => {
+    const [reserveInfo, setReserveInfo] = useRecoilState(reserveState);
+
+    const selectedTicket = reserveInfo.tickets.find((t) => t.id === ticket.id);
+
     return (
         <Stat
             border={'1px solid'}
@@ -30,7 +36,9 @@ export const Ticket = ({ ticket, handleClick }: Props) => {
                     <Button colorScheme='teal' size='sm' mr={1} onClick={() => handleClick(ticket, false)}>
                         -
                     </Button>{' '}
-                    1{' '}
+                    <Text as='div' display='inline-block' fontWeight='bold' width={5} textAlign='center'>
+                        {selectedTicket?.count === undefined ? 0 : selectedTicket?.count}
+                    </Text>{' '}
                     <Button colorScheme='teal' size='sm' ml={1} onClick={() => handleClick(ticket, true)}>
                         +
                     </Button>

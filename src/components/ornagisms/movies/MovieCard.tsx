@@ -64,6 +64,9 @@ export const MovieCard = ({ movie }: Props) => {
         setReserveInfo({
             movie: movie,
             movieManage: manage,
+            seats: [],
+            tickets: [],
+            payment: 0,
         });
         router.push('/reserve/reserve1');
     };

@@ -62,20 +62,12 @@ export const DetailCard = ({ onClick }: Props) => {
                             座席
                         </Heading>
                         <Text pt='2' fontSize='sm'>
-                            {/* {reserveInfo.seats?.map((seat) => seat + ' ')} */}
+                            {reserveInfo.seats.length > 0 ? reserveInfo.seats.map((seat) => seat + ' ') : '未選択'}
                         </Text>
                     </Box>{' '}
                     <Box>
                         <Heading size='xs' textTransform='uppercase'>
                             チケット
-                        </Heading>
-                        <Text pt='2' fontSize='sm'>
-                            {/* {reserveInfo.seats?.map((seat) => seat + ' ')} */}
-                        </Text>
-                    </Box>
-                    <Box>
-                        <Heading size='xs' textTransform='uppercase'>
-                            お支払い方法
                         </Heading>
                         <Text pt='2' fontSize='sm'>
                             {/* {reserveInfo.seats?.map((seat) => seat + ' ')} */}

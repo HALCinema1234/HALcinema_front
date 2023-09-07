@@ -15,6 +15,7 @@ import {
     Thead,
     Tr,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 type Props = {
@@ -25,6 +26,12 @@ export const ReserveCard = ({ manages }: Props) => {
     console.log(manages);
 
     const manage = manages[0];
+
+    const router = useRouter();
+
+    const handleClickReserveButton = () => {
+        router.push('/reserve/reserve1');
+    };
 
     return (
         <AccordionItem>
@@ -60,7 +67,7 @@ export const ReserveCard = ({ manages }: Props) => {
                                         ))}
                                     </Td>
                                     <Td>
-                                        <Button colorScheme='green' size='sm'>
+                                        <Button colorScheme='green' size='sm' onClick={handleClickReserveButton}>
                                             予約する
                                         </Button>
                                     </Td>

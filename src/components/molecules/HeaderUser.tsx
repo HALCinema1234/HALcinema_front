@@ -46,12 +46,26 @@ export const HeaderUser = () => {
                 name: 'test',
                 mailAddress: 'test@gmail.com',
             });
+            toast({
+                title: 'ログインしました',
+                description: 'ようこそ、testさん',
+                status: 'success',
+                isClosable: true,
+                duration: 5000,
+            });
             onClose();
         } else if (emailRef.current?.value === 'ateramoto@gmail.com' && passwordRef.current?.value === 'qRmFlhY26oFa') {
             setUser({
                 id: 1,
                 name: '内田竜一',
                 mailAddress: 'ateramoto@gmail.com',
+            });
+            toast({
+                title: 'ログインしました',
+                description: 'ようこそ、内田竜一さん',
+                status: 'success',
+                isClosable: true,
+                duration: 5000,
             });
             onClose();
         } else {

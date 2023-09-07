@@ -67,12 +67,18 @@ export const MovieCard = ({ movie }: Props) => {
                         </Badge>
                     ))}
                 </CardBody>
-                {/* {select && <p>説明文あああああ</p>} */}
             </Card>
-            <Modal isOpen={isOpen} onClose={onClose} size='5xl'>
+            <Modal isOpen={isOpen} onClose={onClose} size='5xl' scrollBehavior='inside'>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>{movie.title}</ModalHeader>
+                    <ModalHeader>
+                        {movie.title + ' '}
+                        {movie.on_air ? (
+                            <Badge colorScheme='green'>上映中</Badge>
+                        ) : (
+                            <Badge colorScheme='red'>上映予定</Badge>
+                        )}
+                    </ModalHeader>
                     <ModalBody>
                         <Grid templateColumns='8fr 4fr' gap={4}>
                             {/* <GridItem> */}
@@ -87,23 +93,48 @@ export const MovieCard = ({ movie }: Props) => {
                                         height={100}
                                         style={{ width: '100%' }}
                                     />{' '}
-                                    <Text fontSize='xl' fontWeight='bold'>
-                                        映画情報
-                                    </Text>
+                                    <Box></Box>
                                     <Box>
-                                        {movie.types.map((type, i) => (
-                                            <Badge key={i} style={{ marginRight: 5 }} fontSize='l'>
-                                                {type}
-                                            </Badge>
-                                        ))}
+                                        <Text fontSize='l' fontWeight='bold'>
+                                            上映時間
+                                        </Text>
+                                        <Text fontSize='l'>{movie.time}分</Text>
                                     </Box>
-                                    <Text fontSize='xl'>上映時間</Text>
-                                    <Text fontSize='l'>{movie.time}</Text>
+                                    <Box>
+                                        <Text fontSize='l' fontWeight='bold'>
+                                            年齢制限
+                                        </Text>
+                                        <Text fontSize='l'>{movie.age_restrictions}</Text>
+                                    </Box>
+                                    <Box>
+                                        <Text fontSize='l' fontWeight='bold'>
+                                            タグ
+                                        </Text>
+                                        <Box>
+                                            {movie.types.map((type, i) => (
+                                                <Badge key={i} style={{ marginRight: 5 }} fontSize='l'>
+                                                    {type}
+                                                </Badge>
+                                            ))}
+                                        </Box>
+                                    </Box>
                                 </Stack>
                             </GridItem>
                         </Grid>
-                        <Text>{movie.data}</Text>
-                        <Text>上映時間：{movie.time}</Text>
+                        <Stack spacing={4}>
+                            <Box>
+                                <Text fontSize='l' fontWeight='bold'>
+                                    あらすじ
+                                </Text>
+                                <Text>{movie.introduction}</Text>
+                            </Box>
+                            <Box>
+                                <Text fontSize='l' fontWeight='bold'>
+                                    スタッフ
+                                </Text>
+                                <Text>{movie.data}</Text>
+                            </Box>
+                        </Stack>
                         <Input
                             placeholder='日時'
                             type='datetime-local'

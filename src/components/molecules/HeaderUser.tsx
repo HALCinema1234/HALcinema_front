@@ -29,12 +29,16 @@ export const HeaderUser = () => {
                     <ModalHeader>ログイン</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Text>ユーザー名</Text>
-                        <Input placeholder='ユーザー名' size='lg' variant='filled' focusBorderColor='blue.400' />
-                        <Text style={{ marginTop: 30 }}>パスワード</Text>
+                        <Text fontWeight='bold'>ユーザー名</Text>
+                        <Input mt={2} placeholder='ユーザー名' size='lg' variant='filled' focusBorderColor='blue.400' />
+                        <Text fontWeight='bold' style={{ marginTop: 30 }}>
+                            パスワード
+                        </Text>
 
-                        <Input placeholder='パスワード' size='lg' variant='filled' focusBorderColor='blue.400' />
-                        <Link href='/signup'>新規登録する </Link>
+                        <Input mt={2} placeholder='パスワード' size='lg' variant='filled' focusBorderColor='blue.400' />
+                        <Link style={{ color: '#2b5abf' }} href='/signup'>
+                            新規登録する{' '}
+                        </Link>
                     </ModalBody>
                     <ModalFooter>
                         <Button colorScheme='blue' mr={3} onClick={onClose}>

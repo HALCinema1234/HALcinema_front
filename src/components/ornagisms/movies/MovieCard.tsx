@@ -157,13 +157,6 @@ export const MovieCard = ({ movie }: Props) => {
                                 </Accordion>
                             </Box>
                         </Stack>
-                        <Input
-                            placeholder='日時'
-                            type='datetime-local'
-                            style={{
-                                marginBottom: '10px',
-                            }}
-                        />
                     </ModalBody>
                     <ModalFooter>
                         {/* <Link href='/reserve/reserve1'>

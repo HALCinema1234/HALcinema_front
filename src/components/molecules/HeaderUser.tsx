@@ -13,7 +13,9 @@ import {
     ModalHeader,
     ModalOverlay,
     Text,
+    Toast,
     useDisclosure,
+    useToast,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
@@ -25,6 +27,8 @@ export const HeaderUser = () => {
     const [user, setUser] = useRecoilState(userState);
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+
+    const toast = useToast();
 
     const handleFetchUser = async () => {
         // const data = axios.get(
@@ -42,11 +46,21 @@ export const HeaderUser = () => {
                 name: 'test',
                 mailAddress: 'test@gmail.com',
             });
+            onClose();
         } else if (emailRef.current?.value === 'ateramoto@gmail.com' && passwordRef.current?.value === 'qRmFlhY26oFa') {
             setUser({
                 id: 1,
                 name: '内田竜一',
                 mailAddress: 'ateramoto@gmail.com',
+            });
+            onClose();
+        } else {
+            toast({
+                title: 'ログインに失敗しました',
+                description: 'メールアドレスまたはパスワードが間違っています',
+                status: 'error',
+                isClosable: true,
+                duration: 5000,
             });
         }
     };
@@ -84,6 +98,7 @@ export const HeaderUser = () => {
                             size='lg'
                             variant='filled'
                             focusBorderColor='blue.400'
+                            type='password'
                             ref={passwordRef}
                         />
                         <Link style={{ color: '#2b5abf' }} href='/signup'>

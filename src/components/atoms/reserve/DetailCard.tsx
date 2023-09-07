@@ -73,7 +73,9 @@ export const DetailCard = ({ onClick }: Props) => {
                         </Heading>
                         <Text pt='2' fontSize='sm'>
                             {reserveInfo.tickets.length > 0
-                                ? reserveInfo.tickets.map((ticket) => `${ticket}  `)
+                                ? reserveInfo.tickets.map((ticket) => (
+                                      <Text> {`${ticket.name}: ${ticket.count}枚  `}</Text>
+                                  ))
                                 : '未選択'}
                         </Text>
                     </Box>

@@ -48,13 +48,13 @@ export default function reserve2() {
             <Header />
             <MainContainer>
                 <ReserveStepper index={1} />
-                {/* <ReserveContainer onClick={handleRoute}> */}
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, lg: 8 }} p={4} height={300}>
-                    {tickets.map((ticket) => (
-                        <Ticket key={ticket.id} ticket={ticket} handleClick={handleClickTicket} />
-                    ))}
-                </SimpleGrid>
-                {/* </ReserveContainer> */}
+                <ReserveContainer onClick={handleRoute}>
+                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, lg: 8 }} p={4} height={300}>
+                        {tickets.map((ticket) => (
+                            <Ticket key={ticket.id} ticket={ticket} handleClick={handleClickTicket} />
+                        ))}
+                    </SimpleGrid>
+                </ReserveContainer>
             </MainContainer>
         </>
     );

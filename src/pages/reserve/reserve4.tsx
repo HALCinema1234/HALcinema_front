@@ -25,14 +25,14 @@ export default function reserve4() {
     };
 
     const handlePutReserveData = async () => {
-        const UnreservetSeats = reserveInfo.seats.filter((seat) => seat.state != 'reserved');
+        const UnreservedSeats = reserveInfo.seats.filter((seat) => seat.state != 'reserved');
         try {
             await axios.post(
                 process.env.NEXT_PUBLIC_API_BASE_URL! + 'v1/reserves',
                 {
                     manage_id: reserveInfo.movieManage?.id,
                     member_id: 1,
-                    seat: UnreservetSeats.map((seat, i) => {
+                    seat: UnreservedSeats.map((seat, i) => {
                         return {
                             name: formatSeatToName(seat),
                             ticket: reserveInfo.tickets[i].id,

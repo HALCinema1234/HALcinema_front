@@ -23,6 +23,8 @@ export const HeaderUser = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const [user, setUser] = useRecoilState(userState);
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
 
     const handleFetchUser = async () => {
         // const data = axios.get(
@@ -34,13 +36,20 @@ export const HeaderUser = () => {
         //     },
         // );
         // console.log(data);
-        if (emailRef.current?.value === 'test' && passwordRef.current?.value === 'password') {
+        if (emailRef.current?.value === 'test@gmail.com' && passwordRef.current?.value === 'password') {
+            setUser({
+                id: 3,
+                name: 'test',
+                mailAddress: 'test@gmail.com',
+            });
+        } else if (emailRef.current?.value === 'ateramoto@gmail.com' && passwordRef.current?.value === 'qRmFlhY26oFa') {
+            setUser({
+                id: 1,
+                name: '内田竜一',
+                mailAddress: 'ateramoto@gmail.com',
+            });
         }
     };
-
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
-
     return (
         <>
             {user.id != null ? (

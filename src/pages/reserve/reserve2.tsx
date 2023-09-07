@@ -20,7 +20,7 @@ export default function reserve2() {
     const tickets = ticketList;
 
     const handleRoute = () => {
-        router.push('reserve2');
+        router.push('reserve3');
     };
 
     const handleClickTicket = (ticket: TTicket, isPlus: boolean) => {

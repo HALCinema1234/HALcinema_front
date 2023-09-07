@@ -16,6 +16,13 @@ export const DetailCard = ({ onClick }: Props) => {
         return `${month}月${day}日`;
     };
 
+    const payment =
+        reserveInfo.tickets.length === 0
+            ? 0
+            : reserveInfo.tickets.reduce((acc, cur) => {
+                  return acc + cur.price * cur.count!;
+              }, 0);
+
     return (
         <Card>
             <CardHeader>
@@ -85,7 +92,7 @@ export const DetailCard = ({ onClick }: Props) => {
                         </Heading>
                         <Text pt='2' fontSize='sm'>
                             {/* {reserveInfo.seats?.map((seat) => seat + ' ')} */}
-                            {reserveInfo.payment > 0 ? reserveInfo.payment + '円' : 'お支払い情報を入力してください'}
+                            {payment > 0 ? payment + '円' : 'お支払い情報を入力してください'}
                         </Text>
                     </Box>
                     <Button colorScheme='teal' size='lg' onClick={onClick}>

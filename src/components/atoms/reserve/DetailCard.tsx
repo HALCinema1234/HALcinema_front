@@ -62,7 +62,9 @@ export const DetailCard = ({ onClick }: Props) => {
                             座席
                         </Heading>
                         <Text pt='2' fontSize='sm'>
-                            {reserveInfo.seats.length > 0 ? reserveInfo.seats.map((seat) => seat + ' ') : '未選択'}
+                            {reserveInfo.seats.length > 0
+                                ? reserveInfo.seats.map((seat) => `${seat.row}${seat.col}  `)
+                                : '未選択'}
                         </Text>
                     </Box>{' '}
                     <Box>
@@ -70,7 +72,9 @@ export const DetailCard = ({ onClick }: Props) => {
                             チケット
                         </Heading>
                         <Text pt='2' fontSize='sm'>
-                            {/* {reserveInfo.seats?.map((seat) => seat + ' ')} */}
+                            {reserveInfo.tickets.length > 0
+                                ? reserveInfo.tickets.map((ticket) => `${ticket}  `)
+                                : '未選択'}
                         </Text>
                     </Box>
                     <Box>
@@ -79,6 +83,7 @@ export const DetailCard = ({ onClick }: Props) => {
                         </Heading>
                         <Text pt='2' fontSize='sm'>
                             {/* {reserveInfo.seats?.map((seat) => seat + ' ')} */}
+                            {reserveInfo.payment > 0 ? reserveInfo.payment + '円' : 'お支払い情報を入力してください'}
                         </Text>
                     </Box>
                     <Button colorScheme='teal' size='lg' onClick={onClick}>

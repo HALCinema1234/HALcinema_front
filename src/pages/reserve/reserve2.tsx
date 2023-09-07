@@ -4,12 +4,16 @@ import { SHead } from '@/components/ornagisms/SHead';
 import { Paymenttable } from '@/components/ornagisms/payment/Paymenttable';
 import { ReserveContainer } from '@/components/ornagisms/reserve/ReserveContainer';
 import { ReserveStepper } from '@/components/ornagisms/reserve/ReserveStepper';
-import { Button, Flex } from '@chakra-ui/react';
+import { Ticket } from '@/components/ornagisms/reserve/Ticket';
+import { ticketList } from '@/types/ticket';
+import { Box, Button, Card, Flex, SimpleGrid, Stat, StatLabel, StatNumber, useColorModeValue } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 export default function reserve2() {
     const router = useRouter();
+
+    const tickets = ticketList;
 
     const handleRoute = () => {
         router.push('reserve2');
@@ -21,14 +25,11 @@ export default function reserve2() {
             <MainContainer>
                 <ReserveStepper index={1} />
                 <ReserveContainer onClick={handleRoute}>
-                    <Flex direction='column' alignItems='center'>
-                        <Button colorScheme='cyan' padding={7} width={500} marginBottom={5}>
-                            クレジットカード
-                        </Button>
-                        <Button colorScheme='cyan' padding={7} width={500}>
-                            PayPay
-                        </Button>
-                    </Flex>
+                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, lg: 8 }} p={4} height={300}>
+                        {tickets.map((ticket) => (
+                            <Ticket key={ticket.id} ticket={ticket} />
+                        ))}
+                    </SimpleGrid>
                 </ReserveContainer>
             </MainContainer>
         </>

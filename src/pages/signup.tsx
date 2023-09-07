@@ -65,7 +65,7 @@ export default function signup() {
                                 toast({
                                     position: 'bottom-left',
                                     title: 'アカウントを登録しました',
-                                    description: 'ログインしてください',
+                                    description: 'ようこそHAlシネマへ！',
                                     status: 'success',
                                     duration: 5000,
                                     isClosable: true,

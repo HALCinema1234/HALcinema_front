@@ -28,5 +28,5 @@ export type TManage = {
     screening_time: number; // 上映時間(分)
     theater_id: number; // シアター番号
     all_seats: number; // 全座席数
-    type: string[]; // 上映種別
+    types: string[]; // 上映種別
 };

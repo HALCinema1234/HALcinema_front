@@ -1,5 +1,6 @@
 import { TMovie } from '@/types/movie';
 import {
+    Accordion,
     Badge,
     Box,
     Button,
@@ -27,6 +28,7 @@ import Link from 'next/link';
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import '@/styles/galally.module.css';
+import { ReserveCard } from './ReserveCard';
 
 type Props = {
     movie: TMovie;
@@ -139,6 +141,11 @@ export const MovieCard = ({ movie }: Props) => {
                                 <Text fontSize='l' fontWeight='bold'>
                                     予約
                                 </Text>
+                                <Accordion defaultIndex={[0]} allowMultiple p={4}>
+                                    {movie.manages.map((manage) => (
+                                        <ReserveCard manage={manage} />
+                                    ))}
+                                </Accordion>
                             </Box>
                         </Stack>
                         <Input

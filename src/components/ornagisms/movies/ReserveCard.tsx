@@ -7,7 +7,13 @@ import {
     Badge,
     Box,
     Button,
+    Table,
+    TableContainer,
+    Tbody,
+    Td,
     Text,
+    Thead,
+    Tr,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -26,26 +32,43 @@ export const ReserveCard = ({ manages }: Props) => {
                 <AccordionButton _expanded={{ bg: 'tomato', color: 'white' }}>
                     <Box flex='1' textAlign='left'>
                         {manage.day + `（${manage.screening_time}分）` + ' '}
-                        {manage.types.map((type, i) => (
-                            <Badge colorScheme='green' style={{ marginRight: 5 }} fontSize='sm'>
-                                {type}
-                            </Badge>
-                        ))}
                     </Box>
                     <AccordionIcon />
                 </AccordionButton>
             </Text>
             <AccordionPanel pb={4}>
-                {manages.map((m) => (
-                    <Box>
-                        <Text fontSize='l' fontWeight='bold'>
-                            {`${m.start.slice(0, -3)} ~ ${m.end.slice(0, -3)}`}
-                        </Text>
-                        <Text fontSize='l'>{m.types}</Text>
-                    </Box>
-                ))}
-
-                <Button colorScheme='green'>予約する</Button>
+                <TableContainer>
+                    <Table>
+                        <Thead fontWeight='bold'>
+                            <Tr>
+                                <Td>上映時間</Td>
+                                <Td>シアター番号</Td>
+                                <Td>上映タイプ</Td>
+                                <Td>予約</Td>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            {manages.map((m) => (
+                                <Tr>
+                                    <Td>{`${m.start.slice(0, -3)} ~ ${m.end.slice(0, -3)}`}</Td>
+                                    <Td>{m.theater_id}</Td>
+                                    <Td>
+                                        {manage.types.map((type, i) => (
+                                            <Badge colorScheme='green' style={{ marginRight: 5 }} fontSize='sm'>
+                                                {type}
+                                            </Badge>
+                                        ))}
+                                    </Td>
+                                    <Td>
+                                        <Button colorScheme='green' size='sm'>
+                                            予約する
+                                        </Button>
+                                    </Td>
+                                </Tr>
+                            ))}
+                        </Tbody>
+                    </Table>
+                </TableContainer>
             </AccordionPanel>
         </AccordionItem>
     );

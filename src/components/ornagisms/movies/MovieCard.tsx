@@ -166,9 +166,9 @@ export const MovieCard = ({ movie }: Props) => {
                         />
                     </ModalBody>
                     <ModalFooter>
-                        <Link href='/reserve/reserve1'>
+                        {/* <Link href='/reserve/reserve1'>
                             <Button colorScheme='green'>予約する</Button>
-                        </Link>
+                        </Link> */}
                     </ModalFooter>
                     <ModalCloseButton />
                 </ModalContent>
